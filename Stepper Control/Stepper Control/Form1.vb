@@ -159,35 +159,9 @@ Public Class Form1
         serPort.WriteLine("Z")
     End Sub
 
-    Private Sub Button13_Click(sender As Object, e As EventArgs) Handles Button13.Click
-        If openScriptDlg.ShowDialog() = DialogResult.OK Then
-            Button15.Enabled = True
-            Dim file As Stream = openScriptDlg.OpenFile()
-            Dim data(file.Length) As Byte
-            file.Read(data, 0, file.Length)
-            file.Close()
-            Dim cmdString = System.Text.Encoding.Default.GetString(data)
-            Dim d = New runDlg()
-            d.Controls(0).Text = cmdString
-            If d.ShowDialog = DialogResult.OK Then
-                commands = cmdString.Split(vbLf)
-                cmdLine = 0
-                runNextCmd()
-            End If
-        End If
-    End Sub
-
+    Dim d = New runDlg()
     Private Sub Button15_Click(sender As Object, e As EventArgs) Handles Button15.Click
-        Dim file As Stream = openScriptDlg.OpenFile()
-        Dim data(file.Length) As Byte
-        file.Read(data, 0, file.Length)
-        file.Close()
-        Dim d = New runDlg()
-        d.Controls(0).Text = System.Text.Encoding.Default.GetString(data)
         If d.ShowDialog = DialogResult.OK Then
-            Dim stream As StreamWriter = New StreamWriter(openScriptDlg.FileName)
-            stream.Write(d.Controls(0).Text)
-            stream.Close()
             commands = d.Controls(0).Text.Split(vbLf)
             cmdLine = 0
             runNextCmd()

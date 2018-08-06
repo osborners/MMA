@@ -59,7 +59,6 @@ Partial Class Form1
         Me.Label7 = New System.Windows.Forms.Label()
         Me.Label8 = New System.Windows.Forms.Label()
         Me.Label9 = New System.Windows.Forms.Label()
-        Me.Button13 = New System.Windows.Forms.Button()
         Me.openScriptDlg = New System.Windows.Forms.OpenFileDialog()
         Me.Button15 = New System.Windows.Forms.Button()
         Me.TableLayoutPanel1.SuspendLayout()
@@ -87,7 +86,7 @@ Partial Class Form1
         'Button2
         '
         Me.Button2.Image = CType(resources.GetObject("Button2.Image"), System.Drawing.Image)
-        Me.Button2.Location = New System.Drawing.Point(87, 52)
+        Me.Button2.Location = New System.Drawing.Point(86, 52)
         Me.Button2.Name = "Button2"
         Me.Button2.Size = New System.Drawing.Size(40, 37)
         Me.Button2.TabIndex = 2
@@ -98,7 +97,7 @@ Partial Class Form1
         Me.Button3.Image = CType(resources.GetObject("Button3.Image"), System.Drawing.Image)
         Me.Button3.Location = New System.Drawing.Point(50, 3)
         Me.Button3.Name = "Button3"
-        Me.Button3.Size = New System.Drawing.Size(31, 43)
+        Me.Button3.Size = New System.Drawing.Size(30, 43)
         Me.Button3.TabIndex = 3
         Me.Button3.UseVisualStyleBackColor = True
         '
@@ -107,7 +106,7 @@ Partial Class Form1
         Me.Button4.Image = CType(resources.GetObject("Button4.Image"), System.Drawing.Image)
         Me.Button4.Location = New System.Drawing.Point(50, 95)
         Me.Button4.Name = "Button4"
-        Me.Button4.Size = New System.Drawing.Size(31, 40)
+        Me.Button4.Size = New System.Drawing.Size(30, 40)
         Me.Button4.TabIndex = 4
         Me.Button4.UseVisualStyleBackColor = True
         '
@@ -157,7 +156,7 @@ Partial Class Form1
         Me.TableLayoutPanel1.ColumnCount = 3
         Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 56.25!))
         Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 43.75!))
-        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 54.0!))
+        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 55.0!))
         Me.TableLayoutPanel1.Controls.Add(Me.Button2, 2, 1)
         Me.TableLayoutPanel1.Controls.Add(Me.Button3, 1, 0)
         Me.TableLayoutPanel1.Controls.Add(Me.Button4, 1, 2)
@@ -178,7 +177,7 @@ Partial Class Form1
         Me.Button14.ForeColor = System.Drawing.Color.Red
         Me.Button14.Location = New System.Drawing.Point(50, 52)
         Me.Button14.Name = "Button14"
-        Me.Button14.Size = New System.Drawing.Size(31, 37)
+        Me.Button14.Size = New System.Drawing.Size(30, 37)
         Me.Button14.TabIndex = 2
         Me.Button14.UseVisualStyleBackColor = False
         '
@@ -394,19 +393,9 @@ Partial Class Form1
         Me.Label9.TabIndex = 32
         Me.Label9.Text = "Hoist Position"
         '
-        'Button13
-        '
-        Me.Button13.Location = New System.Drawing.Point(424, 216)
-        Me.Button13.Name = "Button13"
-        Me.Button13.Size = New System.Drawing.Size(96, 23)
-        Me.Button13.TabIndex = 33
-        Me.Button13.Text = "Load From File"
-        Me.Button13.UseVisualStyleBackColor = True
-        '
         'Button15
         '
-        Me.Button15.Enabled = False
-        Me.Button15.Location = New System.Drawing.Point(344, 216)
+        Me.Button15.Location = New System.Drawing.Point(448, 216)
         Me.Button15.Name = "Button15"
         Me.Button15.Size = New System.Drawing.Size(72, 23)
         Me.Button15.TabIndex = 34
@@ -420,7 +409,6 @@ Partial Class Form1
         Me.BackColor = System.Drawing.SystemColors.InactiveBorder
         Me.ClientSize = New System.Drawing.Size(530, 245)
         Me.Controls.Add(Me.Button15)
-        Me.Controls.Add(Me.Button13)
         Me.Controls.Add(Me.Label9)
         Me.Controls.Add(Me.Label8)
         Me.Controls.Add(Me.Label7)
@@ -495,7 +483,6 @@ Partial Class Form1
     Friend WithEvents Label8 As Label
     Friend WithEvents Label9 As Label
     Friend WithEvents Button14 As Button
-    Friend WithEvents Button13 As Button
     Friend WithEvents openScriptDlg As OpenFileDialog
     Friend WithEvents Button15 As Button
 End Class

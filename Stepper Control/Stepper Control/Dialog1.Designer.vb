@@ -26,6 +26,8 @@ Partial Class runDlg
         Me.OK_Button = New System.Windows.Forms.Button()
         Me.Cancel_Button = New System.Windows.Forms.Button()
         Me.script = New System.Windows.Forms.TextBox()
+        Me.Button1 = New System.Windows.Forms.Button()
+        Me.openScriptDlg = New System.Windows.Forms.OpenFileDialog()
         Me.TableLayoutPanel1.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -41,6 +43,7 @@ Partial Class runDlg
         Me.TableLayoutPanel1.Name = "TableLayoutPanel1"
         Me.TableLayoutPanel1.RowCount = 1
         Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
+        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
         Me.TableLayoutPanel1.Size = New System.Drawing.Size(146, 29)
         Me.TableLayoutPanel1.TabIndex = 0
         '
@@ -75,6 +78,15 @@ Partial Class runDlg
         Me.script.Size = New System.Drawing.Size(416, 256)
         Me.script.TabIndex = 1
         '
+        'Button1
+        '
+        Me.Button1.Location = New System.Drawing.Point(8, 272)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(75, 23)
+        Me.Button1.TabIndex = 2
+        Me.Button1.Text = "Load"
+        Me.Button1.UseVisualStyleBackColor = True
+        '
         'runDlg
         '
         Me.AcceptButton = Me.OK_Button
@@ -82,6 +94,7 @@ Partial Class runDlg
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.CancelButton = Me.Cancel_Button
         Me.ClientSize = New System.Drawing.Size(435, 315)
+        Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.script)
         Me.Controls.Add(Me.TableLayoutPanel1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog
@@ -100,4 +113,6 @@ Partial Class runDlg
     Friend WithEvents OK_Button As System.Windows.Forms.Button
     Friend WithEvents Cancel_Button As System.Windows.Forms.Button
     Friend WithEvents script As TextBox
+    Friend WithEvents Button1 As Button
+    Friend WithEvents openScriptDlg As OpenFileDialog
 End Class
