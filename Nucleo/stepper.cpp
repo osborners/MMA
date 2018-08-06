@@ -4,11 +4,12 @@
 DigitalOut LED_(PA_5);
 
 Stepper::Stepper(PinName pd, PinName pp, PinName lmt, int f):
-    step_direction(pd), step_pulse(pp), limit_switch(lmt, PullUp)
+    step_direction(pd), step_pulse(pp), limit_switch(lmt)
 {
     fac = f;
     position = 0;
     movement = 0;
+		limit_switch.fall(this, &Stepper::switch_triggered);
 }
 
 
@@ -83,26 +84,7 @@ void Stepper::move_by_sync(int amount, int dir, int speed)
 
 void Stepper::home(int speed)
 {
-    step_direction = backwards;
-    movement = -1;
-    long d = 1000000 / fac / speed;
-    t.attach_us(this, &Stepper::step, d);
-    while (limit_switch == 1);
-    stop();
-    movement = 0;
-    position = 0;
-
-
-    move_by(5, forwards, 5);
-    while(is_moving());
-
-    step_direction = backwards;
-    movement = -1;
-    t.attach_us(this, &Stepper::step, 500000 / fac);
-    while (limit_switch == 1);
-    stop();
-    movement = 0;
-    position = o;
+		Stepper::run(backwards, 30);
 
 }
 
@@ -136,4 +118,22 @@ void Stepper::run(int speed,int direction)
 
 int Stepper::get_pos(void){
     return position/fac;
+}
+
+void Stepper::switch_triggered(){
+		Stepper::stop();
+}
+
+void Stepper::retract(){
+		Stepper::run(5, forwards);
+		while(limit_switch == 0);
+		Stepper::stop();
+		position = 0;
+}
+
+void Stepper::full_home(){
+		Stepper::run(30, backwards);
+		while(is_moving());
+		Stepper::retract();
+		position = 0;
 }

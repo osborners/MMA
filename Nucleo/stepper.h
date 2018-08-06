@@ -21,8 +21,9 @@ class Stepper
     int get_pos(void);
     int is_moving();
     void offset(int amount);
-    DigitalIn limit_switch;
     volatile int position;
+		void retract();
+		void full_home();
  
  private:       
     DigitalOut step_direction;
@@ -36,6 +37,8 @@ class Stepper
     Ticker t;
     Ticker a_t;
     void inc_s();
+		void switch_triggered();
+		InterruptIn limit_switch;
 
 };
 
