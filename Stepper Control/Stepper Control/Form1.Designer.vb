@@ -35,6 +35,7 @@ Partial Class Form1
         Me.Button7 = New System.Windows.Forms.Button()
         Me.Ports = New System.Windows.Forms.ComboBox()
         Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel()
+        Me.Button14 = New System.Windows.Forms.Button()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Button8 = New System.Windows.Forms.Button()
         Me.Button9 = New System.Windows.Forms.Button()
@@ -59,8 +60,8 @@ Partial Class Form1
         Me.Label8 = New System.Windows.Forms.Label()
         Me.Label9 = New System.Windows.Forms.Label()
         Me.Button13 = New System.Windows.Forms.Button()
-        Me.Button14 = New System.Windows.Forms.Button()
         Me.openScriptDlg = New System.Windows.Forms.OpenFileDialog()
+        Me.Button15 = New System.Windows.Forms.Button()
         Me.TableLayoutPanel1.SuspendLayout()
         Me.TableLayoutPanel2.SuspendLayout()
         Me.SuspendLayout()
@@ -86,7 +87,7 @@ Partial Class Form1
         'Button2
         '
         Me.Button2.Image = CType(resources.GetObject("Button2.Image"), System.Drawing.Image)
-        Me.Button2.Location = New System.Drawing.Point(90, 52)
+        Me.Button2.Location = New System.Drawing.Point(87, 52)
         Me.Button2.Name = "Button2"
         Me.Button2.Size = New System.Drawing.Size(40, 37)
         Me.Button2.TabIndex = 2
@@ -95,18 +96,18 @@ Partial Class Form1
         'Button3
         '
         Me.Button3.Image = CType(resources.GetObject("Button3.Image"), System.Drawing.Image)
-        Me.Button3.Location = New System.Drawing.Point(52, 3)
+        Me.Button3.Location = New System.Drawing.Point(50, 3)
         Me.Button3.Name = "Button3"
-        Me.Button3.Size = New System.Drawing.Size(32, 43)
+        Me.Button3.Size = New System.Drawing.Size(31, 43)
         Me.Button3.TabIndex = 3
         Me.Button3.UseVisualStyleBackColor = True
         '
         'Button4
         '
         Me.Button4.Image = CType(resources.GetObject("Button4.Image"), System.Drawing.Image)
-        Me.Button4.Location = New System.Drawing.Point(52, 95)
+        Me.Button4.Location = New System.Drawing.Point(50, 95)
         Me.Button4.Name = "Button4"
-        Me.Button4.Size = New System.Drawing.Size(32, 40)
+        Me.Button4.Size = New System.Drawing.Size(31, 40)
         Me.Button4.TabIndex = 4
         Me.Button4.UseVisualStyleBackColor = True
         '
@@ -156,7 +157,7 @@ Partial Class Form1
         Me.TableLayoutPanel1.ColumnCount = 3
         Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 56.25!))
         Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 43.75!))
-        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 51.0!))
+        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 54.0!))
         Me.TableLayoutPanel1.Controls.Add(Me.Button2, 2, 1)
         Me.TableLayoutPanel1.Controls.Add(Me.Button3, 1, 0)
         Me.TableLayoutPanel1.Controls.Add(Me.Button4, 1, 2)
@@ -170,6 +171,16 @@ Partial Class Form1
         Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 45.0!))
         Me.TableLayoutPanel1.Size = New System.Drawing.Size(139, 138)
         Me.TableLayoutPanel1.TabIndex = 9
+        '
+        'Button14
+        '
+        Me.Button14.BackColor = System.Drawing.Color.Red
+        Me.Button14.ForeColor = System.Drawing.Color.Red
+        Me.Button14.Location = New System.Drawing.Point(50, 52)
+        Me.Button14.Name = "Button14"
+        Me.Button14.Size = New System.Drawing.Size(31, 37)
+        Me.Button14.TabIndex = 2
+        Me.Button14.UseVisualStyleBackColor = False
         '
         'Label1
         '
@@ -245,7 +256,7 @@ Partial Class Form1
         '
         Me.ComboBox2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.ComboBox2.FormattingEnabled = True
-        Me.ComboBox2.Items.AddRange(New Object() {"MB", "MT", "JG", "HM"})
+        Me.ComboBox2.Items.AddRange(New Object() {"MB", "MT", "JG", "HM", "SV"})
         Me.ComboBox2.Location = New System.Drawing.Point(257, 68)
         Me.ComboBox2.Name = "ComboBox2"
         Me.ComboBox2.Size = New System.Drawing.Size(57, 21)
@@ -258,6 +269,7 @@ Partial Class Form1
         Me.TextBox2.Name = "TextBox2"
         Me.TextBox2.Size = New System.Drawing.Size(67, 20)
         Me.TextBox2.TabIndex = 18
+        Me.TextBox2.Text = "0"
         '
         'TextBox3
         '
@@ -266,6 +278,7 @@ Partial Class Form1
         Me.TextBox3.Name = "TextBox3"
         Me.TextBox3.Size = New System.Drawing.Size(68, 20)
         Me.TextBox3.TabIndex = 19
+        Me.TextBox3.Text = "0"
         '
         'TextBox4
         '
@@ -274,6 +287,7 @@ Partial Class Form1
         Me.TextBox4.Name = "TextBox4"
         Me.TextBox4.Size = New System.Drawing.Size(60, 20)
         Me.TextBox4.TabIndex = 20
+        Me.TextBox4.Text = "0"
         '
         'Label3
         '
@@ -389,15 +403,15 @@ Partial Class Form1
         Me.Button13.Text = "Load From File"
         Me.Button13.UseVisualStyleBackColor = True
         '
-        'Button14
+        'Button15
         '
-        Me.Button14.BackColor = System.Drawing.Color.Red
-        Me.Button14.ForeColor = System.Drawing.Color.Red
-        Me.Button14.Location = New System.Drawing.Point(52, 52)
-        Me.Button14.Name = "Button14"
-        Me.Button14.Size = New System.Drawing.Size(32, 37)
-        Me.Button14.TabIndex = 2
-        Me.Button14.UseVisualStyleBackColor = False
+        Me.Button15.Enabled = False
+        Me.Button15.Location = New System.Drawing.Point(344, 216)
+        Me.Button15.Name = "Button15"
+        Me.Button15.Size = New System.Drawing.Size(72, 23)
+        Me.Button15.TabIndex = 34
+        Me.Button15.Text = "Edit"
+        Me.Button15.UseVisualStyleBackColor = True
         '
         'Form1
         '
@@ -405,6 +419,7 @@ Partial Class Form1
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.SystemColors.InactiveBorder
         Me.ClientSize = New System.Drawing.Size(530, 245)
+        Me.Controls.Add(Me.Button15)
         Me.Controls.Add(Me.Button13)
         Me.Controls.Add(Me.Label9)
         Me.Controls.Add(Me.Label8)
@@ -482,4 +497,5 @@ Partial Class Form1
     Friend WithEvents Button14 As Button
     Friend WithEvents Button13 As Button
     Friend WithEvents openScriptDlg As OpenFileDialog
+    Friend WithEvents Button15 As Button
 End Class

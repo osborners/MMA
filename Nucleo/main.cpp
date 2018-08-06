@@ -8,12 +8,16 @@ DigitalIn button(PC_13);
 Stepper Track_l(PB_5, PB_3, PC_5, 800);
 Stepper Track_r(PB_13, PA_10, PA_12, 800);
 Stepper Bridge(PB_14, PA_11, PB_2, 800);
-Stepper Hoist(PB_10, PB_4, PB_12, 800);
+Stepper Hoist(PB_10, PB_4, PB_12, 178);
 DigitalOut stepper_enable(PC_4);
 Serial uart(PA_2 , PA_3);
 DigitalOut LED(PA_5);
+DigitalOut HALL(PA_0);
 //Serial pc(USBTX, USBRX);
 Ticker Don;
+
+void moveservo();
+PwmOut servo(PC_6);
 
 void debounce() {
     while(button);
@@ -115,10 +119,25 @@ void readLine(char* l) {
 	}
 }
 
+void moveservo(int state)
+{
+    if (state == 1)
+    {
+        servo.pulsewidth_us(1950);
+    }
+    else
+    {
+        servo.pulsewidth_us(1150);
+    }
+    wait_ms(10);
+}
+
 int main(){
     Don.attach(&update_pos, 0.5);
+	  servo.period_us(20000);
     uart.baud(9600);
     stepper_enable = 1;
+		HALL = 1;
 	
 	  char value[14];
 	
@@ -131,6 +150,25 @@ int main(){
 			
         readLine(value);
 			
+				for(int i = 2; i < 5; i++) {
+					if(value[i] == '-') {
+						value[i] = '0';
+						value[2] = '-';
+					}
+				}
+				for(int i = 6; i < 9; i++) {
+					if(value[i] == '-') {
+						value[i] = '0';
+						value[6] = '-';
+					}
+				}
+				for(int i = 10; i < 13; i++) {
+					if(value[i] == '-') {
+						value[i] = '0';
+						value[10] = '-';
+					}
+				}
+				
         bridge_cooard = (value[3]-48)*100+(value[4]-48)*10+(value[5]-48);
         track_cooard = (value[7]-48)*100+(value[8]-48)*10+(value[9]-48);
         hoist_cooard = (value[11]-48)*100+(value[12]-48)*10+(value[12]-48);
@@ -154,10 +192,12 @@ int main(){
             Hoist.move_to(hoist_cooard,MoveSpeed);
         }
         else if(value[0]=='M'& value[1]=='B'){
+					
+						//uart.printf("%s", value);
             int bridge_dir;
             int track_dir;
             int hoist_dir;
-            if(value[2] == '-'){
+            if(value[2] == '-') {
                 bridge_dir = backwards;
             }
             else{
@@ -182,7 +222,13 @@ int main(){
 						while(Bridge.is_moving() || Hoist.is_moving() || Track_l.is_moving() || Track_r.is_moving());
 						wait_ms(100);
 						uart.printf("a\n");
-        }
+        } else if(value[0]=='S'& value[1]=='V') {
+						if (bridge_cooard == 1) {
+								moveservo(1);
+						} else {
+								moveservo(0);
+						}
+				}
 
     }    
     return 0;

@@ -1,5 +1,9 @@
+Imports System.IO
 Imports System.IO.Ports
 Imports System.Threading
+
+'Width = 145
+'Depth = 128
 
 Public Class Form1
     Private Delegate Sub UpdateTextboxDelegate(ByVal myText As String, textBox As TextBox)
@@ -41,25 +45,11 @@ Public Class Form1
     Dim state2 As Byte = 1
 
     Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
-
-        If up_state = 1 Then
-            serPort.WriteLine("U")
-            up_state = 0
-        Else
-            serPort.WriteLine("S")
-            up_state = 1
-        End If
+        serPort.WriteLine("U")
     End Sub
 
     Private Sub Button4_Click(sender As Object, e As EventArgs) Handles Button4.Click
-
-        If up_state = 1 Then
-            serPort.WriteLine("D")
-            up_state = 0
-        Else
-            serPort.WriteLine("S")
-            up_state = 1
-        End If
+        serPort.WriteLine("D")
     End Sub
 
     Private Sub Button5_Click(sender As Object, e As EventArgs) Handles Button5.Click
@@ -75,34 +65,20 @@ Public Class Form1
     End Sub
 
     Private Sub Button8_Click(sender As Object, e As EventArgs) Handles Button8.Click
-        If state = 1 Then
-            serPort.WriteLine("C")
-            state = 0
-        Else
-            serPort.WriteLine("S")
-            state = 1
-        End If
+        serPort.WriteLine("C")
     End Sub
 
     Private Sub Button9_Click(sender As Object, e As EventArgs) Handles Button9.Click
-        If state2 = 1 Then
-            serPort.WriteLine("X")
-            state2 = 0
-        Else
-            serPort.WriteLine("S")
-            state2 = 1
-        End If
-
+        serPort.WriteLine("X")
     End Sub
 
-    Private Sub Button2_Click_1(sender As Object, e As EventArgs) Handles Button2.Click, Button14.Click
-        If right_state = 1 Then
-            serPort.WriteLine("R")
-            right_state = 0
-        Else
-            serPort.WriteLine("S")
-            right_state = 1
-        End If
+    Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
+        serPort.WriteLine("R")
+    End Sub
+
+    Private Sub Button2_Click_1(sender As Object, e As EventArgs) Handles Button14.Click
+        serPort.WriteLine("S")
+        cmdLine = -1
     End Sub
 
     Private Sub SendCommand_Click(sender As Object, e As EventArgs) Handles SendCommand.Click
@@ -111,11 +87,7 @@ Public Class Form1
     End Sub
 
     Private Sub ComboBox2_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ComboBox2.SelectedIndexChanged
-        i = ComboBox2.SelectedIndex
-        Command(1) = ComboBox2.Items(i)
-        For j As Integer = 2 To 4
-            Command(j) = "0000"
-        Next
+        Command(0) = ComboBox2.Items(ComboBox2.SelectedIndex)
     End Sub
 
     Dim commands As String()
@@ -123,9 +95,15 @@ Public Class Form1
     Dim data As String
 
     Private Sub runNextCmd()
-        If cmdLine < commands.Length Then
+        If commands Is Nothing Then Return
+        If cmdLine >= 0 And cmdLine < commands.Length Then
             Thread.Sleep(200)
-            serPort.WriteLine(commands(cmdLine))
+            Dim s = commands(cmdLine).Split(" ")
+            If s.Length < 4 Then
+                cmdLine = -1
+                Return
+            End If
+            serPort.Write(s(0) + s(1).PadLeft(4, "0") + s(2).PadLeft(4, "0") + s(3).PadLeft(4, "0"))
             cmdLine += 1
         Else
             cmdLine = -1
@@ -162,26 +140,19 @@ Public Class Form1
     End Sub
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
-        If left_state = 1 Then
-            serPort.WriteLine("L")
-            left_state = 0
-        Else
-            serPort.WriteLine("S")
-            left_state = 1
-        End If
-
+        serPort.WriteLine("L")
     End Sub
 
     Private Sub TextBox2_TextChanged(sender As Object, e As EventArgs) Handles TextBox2.TextChanged
-        Command(2) = TextBox2.Text.PadLeft(4, "0")
+        Command(1) = TextBox2.Text.PadLeft(4, "0")
     End Sub
 
     Private Sub TextBox3_TextChanged(sender As Object, e As EventArgs) Handles TextBox3.TextChanged
-        Command(3) = TextBox2.Text.PadLeft(4, "0")
+        Command(2) = TextBox3.Text.PadLeft(4, "0")
     End Sub
 
     Private Sub TextBox4_TextChanged(sender As Object, e As EventArgs) Handles TextBox4.TextChanged
-        Command(4) = TextBox2.Text.PadLeft(4, "0")
+        Command(3) = TextBox4.Text.PadLeft(4, "0")
     End Sub
 
     Private Sub Button12_Click(sender As Object, e As EventArgs) Handles Button12.Click
@@ -190,9 +161,11 @@ Public Class Form1
 
     Private Sub Button13_Click(sender As Object, e As EventArgs) Handles Button13.Click
         If openScriptDlg.ShowDialog() = DialogResult.OK Then
-            Dim data(openScriptDlg.OpenFile().Length) As Byte
-            openScriptDlg.OpenFile().Read(data, 0, openScriptDlg.OpenFile().Length)
-            openScriptDlg.OpenFile().Close()
+            Button15.Enabled = True
+            Dim file As Stream = openScriptDlg.OpenFile()
+            Dim data(file.Length) As Byte
+            file.Read(data, 0, file.Length)
+            file.Close()
             Dim cmdString = System.Text.Encoding.Default.GetString(data)
             Dim d = New runDlg()
             d.Controls(0).Text = cmdString
@@ -203,4 +176,22 @@ Public Class Form1
             End If
         End If
     End Sub
+
+    Private Sub Button15_Click(sender As Object, e As EventArgs) Handles Button15.Click
+        Dim file As Stream = openScriptDlg.OpenFile()
+        Dim data(file.Length) As Byte
+        file.Read(data, 0, file.Length)
+        file.Close()
+        Dim d = New runDlg()
+        d.Controls(0).Text = System.Text.Encoding.Default.GetString(data)
+        If d.ShowDialog = DialogResult.OK Then
+            Dim stream As StreamWriter = New StreamWriter(openScriptDlg.FileName)
+            stream.Write(d.Controls(0).Text)
+            stream.Close()
+            commands = d.Controls(0).Text.Split(vbLf)
+            cmdLine = 0
+            runNextCmd()
+        End If
+    End Sub
+
 End Class
