@@ -1,4 +1,4 @@
---cpu Cortex-M4.fp
+--cpu=Cortex-M4.fp
 "mbed/TARGET_NUCLEO_F446RE/TOOLCHAIN_ARM_STD/analogin_api.o"
 "mbed/TARGET_NUCLEO_F446RE/TOOLCHAIN_ARM_STD/analogin_device.o"
 "mbed/TARGET_NUCLEO_F446RE/TOOLCHAIN_ARM_STD/analogout_api.o"
@@ -124,6 +124,6 @@
 ".\build\main.o"
 ".\build\stepper.o"
 --nodebug --scatter "mbed/TARGET_NUCLEO_F446RE/TOOLCHAIN_ARM_STD/stm32f446xx.sct"
---show_full_path --summary_stderr --info summarysizes --map --xref --callgraph --symbols
+--show_full_path --summary_stderr --info summarysizes --map --load_addr_map_info --xref --callgraph --symbols
 --info sizes --info totals --info unused --info veneers
 --list ".\BUILD\MMA_Project.map" -o .\BUILD\MMA_Project.axf
