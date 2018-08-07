@@ -5,7 +5,7 @@
 <h2>Tool Versions:</h2>
 IDE-Version: µVision V5.25.2.0
 Copyright (C) 2018 ARM Ltd and ARM Germany GmbH. All rights reserved.
-License Information: Carl Palamountain, massey, LIC=----
+License Information: Carl Palamountain, massey, LIC=EPPFW-QVZ53-496G2-931PE-XRR7Q-IKX0D
  
 Tool Versions:
 Toolchain:       MDK-ARM Professional  Version: 5.25.2.0
@@ -29,33 +29,23 @@ Project File Date:  08/06/2018
 *** Note: Rebuilding project, since 'Options->Output->Create Batch File' is selected.
 Rebuild target 'MMA_Project'
 compiling main.cpp...
-main.cpp(33): warning:  #550-D: variable "char1"  was set but never used
+main.cpp(32): warning:  #550-D: variable "char1"  was set but never used
       char char1 = 0; 
-main.cpp(213): warning:  #111-D: statement is unreachable
+main.cpp(214): warning:  #111-D: statement is unreachable
       return 0;
-main.cpp(118): warning:  #177-D: variable "value"  was declared but never referenced
+main.cpp(117): warning:  #177-D: variable "value"  was declared but never referenced
           char value[14];
 main.cpp: 3 warnings, 0 errors
 compiling stepper.cpp...
-stepper.cpp(12): warning:  #1361-D: function "mbed::InterruptIn::fall(T *, M) [with T=Stepper, M=void (Stepper::*)()]"  (declared at line 126 of "mbed/./drivers/InterruptIn.h") was declared "deprecated"
-                limit_switch.fall(this, &Stepper::switch_triggered);
-stepper.cpp(23): warning:  #1361-D: function "mbed::Ticker::attach_us(T *, M, us_timestamp_t) [with T=Stepper, M=void (Stepper::*)()]"  (declared at line 139 of "mbed/./drivers/Ticker.h") was declared "deprecated"
-      t.attach_us(this, &Stepper::step, 1000000 / fac / cs);
-stepper.cpp(47): warning:  #177-D: variable "l"  was declared but never referenced
+stepper.cpp(49): warning:  #177-D: variable "l"  was declared but never referenced
       long l = (location + o)* fac;
-stepper.cpp(64): warning:  #1361-D: function "mbed::Ticker::attach_us(T *, M, us_timestamp_t) [with T=Stepper, M=void (Stepper::*)()]"  (declared at line 139 of "mbed/./drivers/Ticker.h") was declared "deprecated"
-          t.attach_us(this, &Stepper::step, 1000000 / fac / speed);
-stepper.cpp(68): warning:  #1361-D: function "mbed::Ticker::attach_us(T *, M, us_timestamp_t) [with T=Stepper, M=void (Stepper::*)()]"  (declared at line 139 of "mbed/./drivers/Ticker.h") was declared "deprecated"
-          a_t.attach_us(this, &Stepper::inc_s, 10000);
-stepper.cpp(116): warning:  #1361-D: function "mbed::Ticker::attach_us(T *, M, us_timestamp_t) [with T=Stepper, M=void (Stepper::*)()]"  (declared at line 139 of "mbed/./drivers/Ticker.h") was declared "deprecated"
-      t.attach_us(this, &Stepper::step, d);
-stepper.cpp(139): warning:  #1-D: last line of file ends without a newline
+stepper.cpp(140): warning:  #1-D: last line of file ends without a newline
   }
-stepper.cpp: 7 warnings, 0 errors
+stepper.cpp: 2 warnings, 0 errors
 linking...
-Program Size: Code=33036 RO-data=3452 RW-data=180 ZI-data=3416  
+Program Size: Code=33444 RO-data=3460 RW-data=180 ZI-data=3416  
 FromELF: creating hex file...
-".\BUILD\MMA_Project.axf" - 0 Error(s), 10 Warning(s).
+".\BUILD\MMA_Project.axf" - 0 Error(s), 5 Warning(s).
 
 <h2>Software Packages used:</h2>
 

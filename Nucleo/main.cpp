@@ -5,16 +5,15 @@
 
 
 DigitalIn button(PC_13);
-Stepper Track_l(PB_5, PB_3, PA_1, 800);
-Stepper Track_r(PB_13, PA_10, PC_1, 800);
+Stepper Track_r(PB_5, PB_3, PB_0, 800);
+Stepper Track_l(PB_13, PA_10, PA_1, 800);
 Stepper Bridge(PB_14, PA_11, PA_4, 800);
-Stepper Hoist(PB_10, PB_4, PB_0, 178);
+Stepper Hoist(PB_10, PB_4, PA_7, 178);
 DigitalOut stepper_enable(PC_4);
 //Serial uart(PC_10 , PC_11);
 Serial uart(PA_2 , PA_3);
 DigitalOut LED(PA_5);
 DigitalOut HALL(PA_0);
-//Serial pc(USBTX, USBRX);
 Ticker Don;
 
 
@@ -206,6 +205,8 @@ int main(){
 						}
 				}
 				else if(value[0]=='H'& value[1]=='M') {
+						wait_ms(100);
+						uart.printf("Homing\n");
 						Bridge.full_home();
 				}
 
