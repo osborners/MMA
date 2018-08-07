@@ -103,7 +103,7 @@ Public Class Form1
                 cmdLine = -1
                 Return
             End If
-            serPort.Write(s(0) + s(1).PadLeft(4, "0") + s(2).PadLeft(4, "0") + s(3).PadLeft(4, "0"))
+            serPort.Write(s(0) + s(1).PadLeft(4, "0") + s(2).PadLeft(4, "0") + s(3).PadLeft(5, "0").Replace(vbCr, vbLf))
             cmdLine += 1
         Else
             cmdLine = -1
@@ -162,7 +162,15 @@ Public Class Form1
     Dim d = New runDlg()
     Private Sub Button15_Click(sender As Object, e As EventArgs) Handles Button15.Click
         If d.ShowDialog = DialogResult.OK Then
-            commands = d.Controls(0).Text.Split(vbLf)
+            commands = d.Controls(1).Text.Split(vbLf)
+            cmdLine = 0
+            runNextCmd()
+        End If
+    End Sub
+
+    Private Sub Button13_Click(sender As Object, e As EventArgs) Handles Button13.Click
+        If d.Controls(1).Text IsNot "" Then
+            commands = d.Controls(1).Text.Split(vbLf)
             cmdLine = 0
             runNextCmd()
         End If

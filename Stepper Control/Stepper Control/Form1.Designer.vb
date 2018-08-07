@@ -61,6 +61,7 @@ Partial Class Form1
         Me.Label9 = New System.Windows.Forms.Label()
         Me.openScriptDlg = New System.Windows.Forms.OpenFileDialog()
         Me.Button15 = New System.Windows.Forms.Button()
+        Me.Button13 = New System.Windows.Forms.Button()
         Me.TableLayoutPanel1.SuspendLayout()
         Me.TableLayoutPanel2.SuspendLayout()
         Me.SuspendLayout()
@@ -395,12 +396,21 @@ Partial Class Form1
         '
         'Button15
         '
-        Me.Button15.Location = New System.Drawing.Point(448, 216)
+        Me.Button15.Location = New System.Drawing.Point(368, 216)
         Me.Button15.Name = "Button15"
         Me.Button15.Size = New System.Drawing.Size(72, 23)
         Me.Button15.TabIndex = 34
         Me.Button15.Text = "Edit"
         Me.Button15.UseVisualStyleBackColor = True
+        '
+        'Button13
+        '
+        Me.Button13.Location = New System.Drawing.Point(448, 216)
+        Me.Button13.Name = "Button13"
+        Me.Button13.Size = New System.Drawing.Size(72, 23)
+        Me.Button13.TabIndex = 35
+        Me.Button13.Text = "Run"
+        Me.Button13.UseVisualStyleBackColor = True
         '
         'Form1
         '
@@ -408,6 +418,7 @@ Partial Class Form1
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.SystemColors.InactiveBorder
         Me.ClientSize = New System.Drawing.Size(530, 245)
+        Me.Controls.Add(Me.Button13)
         Me.Controls.Add(Me.Button15)
         Me.Controls.Add(Me.Label9)
         Me.Controls.Add(Me.Label8)
@@ -485,4 +496,5 @@ Partial Class Form1
     Friend WithEvents Button14 As Button
     Friend WithEvents openScriptDlg As OpenFileDialog
     Friend WithEvents Button15 As Button
+    Friend WithEvents Button13 As Button
 End Class
