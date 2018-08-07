@@ -5,16 +5,17 @@
 
 
 DigitalIn button(PC_13);
-Stepper Track_l(PB_5, PB_3, PC_5, 800);
-Stepper Track_r(PB_13, PA_10, PA_12, 800);
-Stepper Bridge(PB_14, PA_11, PB_2, 800);
-Stepper Hoist(PB_10, PB_4, PB_12, 178);
+Stepper Track_r(PB_5, PB_3, PB_0, 800);
+Stepper Track_l(PB_13, PA_10, PA_1, 800);
+Stepper Bridge(PB_14, PA_11, PA_4, 800);
+Stepper Hoist(PB_10, PB_4, PA_7, 178);
 DigitalOut stepper_enable(PC_4);
+//Serial uart(PC_10 , PC_11);
 Serial uart(PA_2 , PA_3);
 DigitalOut LED(PA_5);
 DigitalOut HALL(PA_0);
-//Serial pc(USBTX, USBRX);
 Ticker Don;
+
 
 void moveservo();
 PwmOut servo(PC_6);
@@ -26,32 +27,6 @@ void debounce() {
     wait_ms(200);
 }
 
-void dual_home(){
-    while((Track_l.limit_switch&&Track_r.limit_switch)==0){
-        Track_l.run(30, backwards);
-        Track_r.run(30, backwards);
-        if(Track_l.limit_switch == 1){
-            Track_l.stop();
-            Track_l.position = 0;
-        }
-        else if(Track_r.limit_switch == 1){
-            Track_r.stop();
-            Track_r.position = 0;
-        }
-    }
-    while((Track_l.limit_switch&&Track_r.limit_switch)==1){
-        Track_l.run(30, forwards);
-        Track_r.run(30, forwards);
-        if(Track_l.limit_switch == 0){
-            Track_l.stop();
-            Track_l.position = 0;
-        }
-        else if(Track_r.limit_switch == 0){
-            Track_r.stop();
-            Track_r.position = 0;
-        }
-    }
-}
 
 void flushSerialBuffer(void){ 
     char char1 = 0; 
@@ -80,12 +55,12 @@ void jog_command(char command){
     else if(command == 'R')
         Bridge.run(50,forwards);
     else if(command == 'U'){
-        Track_l.run(30,backwards);
-        Track_r.run(30,backwards);
+        Track_l.run(40,backwards);
+        Track_r.run(40,backwards);
     }
     else if(command == 'D'){
-        Track_l.run(30,forwards);
-        Track_r.run(30,forwards);
+        Track_l.run(40,forwards);
+        Track_r.run(40,forwards);
     }
     else if(command == 'C')
         Hoist.run(30,forwards);
@@ -228,6 +203,11 @@ int main(){
 						} else {
 								moveservo(0);
 						}
+				}
+				else if(value[0]=='H'& value[1]=='M') {
+						wait_ms(100);
+						uart.printf("Homing\n");
+						Bridge.full_home();
 				}
 
     }    

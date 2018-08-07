@@ -4,11 +4,14 @@
 DigitalOut LED_(PA_5);
 
 Stepper::Stepper(PinName pd, PinName pp, PinName lmt, int f):
-    step_direction(pd), step_pulse(pp), limit_switch(lmt, PullUp)
+    step_direction(pd), step_pulse(pp), limit_switch(lmt)
 {
     fac = f;
     position = 0;
     movement = 0;
+		limit_switch.fall(callback(this, &Stepper::switch_triggered));
+		limit_switch.rise(callback(this, &Stepper::retract));
+		limit_switch.enable_irq();
 }
 
 
@@ -19,7 +22,7 @@ void Stepper::inc_s()
         a_t.detach();
         return;
     }
-    t.attach_us(this, &Stepper::step, 1000000 / fac / cs);
+    t.attach_us(callback(this, &Stepper::step), 1000000 / fac / cs);
 }
 
 void Stepper::stop()
@@ -60,11 +63,11 @@ void Stepper::move_by(int amount, int dir, int speed)
     movement = amount * fac;
     //position += amount * (dir ? 1 : -1);
     if (a == 0) {
-        t.attach_us(this, &Stepper::step, 1000000 / fac / speed);
+        t.attach_us(callback(this, &Stepper::step), 1000000 / fac / speed);
     } else {
         sp = speed;
         cs = 0;
-        a_t.attach_us(this, &Stepper::inc_s, 10000);
+        a_t.attach_us(callback(this, &Stepper::inc_s), 10000);
     }
 }
 
@@ -83,26 +86,7 @@ void Stepper::move_by_sync(int amount, int dir, int speed)
 
 void Stepper::home(int speed)
 {
-    step_direction = backwards;
-    movement = -1;
-    long d = 1000000 / fac / speed;
-    t.attach_us(this, &Stepper::step, d);
-    while (limit_switch == 1);
-    stop();
-    movement = 0;
-    position = 0;
-
-
-    move_by(5, forwards, 5);
-    while(is_moving());
-
-    step_direction = backwards;
-    movement = -1;
-    t.attach_us(this, &Stepper::step, 500000 / fac);
-    while (limit_switch == 1);
-    stop();
-    movement = 0;
-    position = o;
+		Stepper::run(backwards, 30);
 
 }
 
@@ -131,9 +115,26 @@ void Stepper::run(int speed,int direction)
     step_direction = direction;
     movement = -1;
     long d = 1000000 / fac / speed;
-    t.attach_us(this, &Stepper::step, d);
+    t.attach_us(callback(this, &Stepper::step), d);
 }
 
 int Stepper::get_pos(void){
     return position/fac;
+}
+
+void Stepper::switch_triggered(){
+		Stepper::stop();
+		LED_ = !LED_;
+		Stepper::run(5, backwards);
+}
+
+void Stepper::retract(){
+		Stepper::stop();
+
+}
+
+void Stepper::full_home(){
+		Stepper::run(30, backwards);
+		Stepper::retract();
+		position = 0;
 }
