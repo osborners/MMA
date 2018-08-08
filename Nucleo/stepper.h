@@ -2,8 +2,8 @@
 
 #ifndef STEPPER_H
 #define STEPPER_H
-#define forwards 1
-#define backwards 0
+#define forwards 0
+#define backwards 1
 
 class Stepper
 {
@@ -23,7 +23,7 @@ class Stepper
     void offset(int amount);
     volatile int position;
 		void retract();
-		void full_home();
+		void full_home(int direction);
  
  private:       
     DigitalOut step_direction;

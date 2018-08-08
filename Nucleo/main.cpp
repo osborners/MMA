@@ -40,31 +40,36 @@ void update_pos(void){
 		posFlag = 1;
 }
 
+void send_pos(void){
+		uart.printf("x%i\n", Bridge.get_pos());
+    uart.printf("y%i\n", Track_l.get_pos());
+    uart.printf("z%i\n", Hoist.get_pos());
+}
+
 void display_pos(void){
     if(Bridge.is_moving() || Hoist.is_moving() || Track_l.is_moving()){
-        uart.printf("x%i\n", Bridge.get_pos());
-        uart.printf("y%i\n", Track_l.get_pos());
-        uart.printf("z%i\n", Hoist.get_pos());
+        send_pos();
     }
 		posFlag = 0;
 }
 
+
 void jog_command(char command){
-    if(command == 'L')
+    if(command == 'R')
         Bridge.run(50,backwards);
-    else if(command == 'R')
+    else if(command == 'L')
         Bridge.run(50,forwards);
-    else if(command == 'U'){
+    else if(command == 'D'){
         Track_l.run(40,backwards);
         Track_r.run(40,backwards);
     }
-    else if(command == 'D'){
+    else if(command == 'U'){
         Track_l.run(40,forwards);
         Track_r.run(40,forwards);
     }
-    else if(command == 'C')
-        Hoist.run(30,forwards);
     else if(command == 'X')
+        Hoist.run(30,forwards);
+    else if(command == 'C')
         Hoist.run(30,backwards);
     else if(command == 'N')
         Bridge.position = 0;
@@ -79,7 +84,6 @@ void jog_command(char command){
         Track_l.stop();
         Track_r.stop();
         Hoist.stop();
-        LED = !LED;
     }
 }
 
@@ -165,6 +169,10 @@ int main(){
             Track_l.move_to(track_cooard,MoveSpeed);
             Track_r.move_to(track_cooard,MoveSpeed);
             Hoist.move_to(hoist_cooard,MoveSpeed);
+						while(Bridge.is_moving() || Hoist.is_moving() || Track_l.is_moving() || Track_r.is_moving()) {
+							if (posFlag) display_pos();
+						}
+						send_pos();
         }
         else if(value[0]=='M'& value[1]=='B'){
 					
@@ -194,7 +202,10 @@ int main(){
             Track_l.move_by(track_cooard,track_dir,MoveSpeed);
             Track_r.move_by(track_cooard,track_dir,MoveSpeed);
             Hoist.move_by(hoist_cooard,hoist_dir,MoveSpeed);
-						while(Bridge.is_moving() || Hoist.is_moving() || Track_l.is_moving() || Track_r.is_moving());
+						while(Bridge.is_moving() || Hoist.is_moving() || Track_l.is_moving() || Track_r.is_moving()) {
+							if (posFlag) display_pos();
+						}
+						send_pos();
 						wait_ms(100);
 						uart.printf("a\n");
         } else if(value[0]=='S'& value[1]=='V') {
@@ -203,11 +214,16 @@ int main(){
 						} else {
 								moveservo(0);
 						}
-				}
-				else if(value[0]=='H'& value[1]=='M') {
-						wait_ms(100);
-						uart.printf("Homing\n");
-						Bridge.full_home();
+				} else if(	value[0]=='H'& value[1]=='M') {
+						Bridge.full_home(backwards);
+						Track_r.full_home(backwards);
+						Track_l.full_home(backwards);
+						while(Bridge.is_moving() || Hoist.is_moving() || Track_l.is_moving() || Track_r.is_moving()){
+							if (posFlag) display_pos();
+						}
+						send_pos();
+						LED = !LED;
+						send_pos();
 				}
 
     }    

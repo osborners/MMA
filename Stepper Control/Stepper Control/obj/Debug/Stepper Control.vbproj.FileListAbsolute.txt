@@ -46,3 +46,16 @@ D:\Documents\Massey\Year 3\MMA\MMA\Stepper Control\Stepper Control\obj\Debug\Ste
 D:\Documents\Massey\Year 3\MMA\MMA\Stepper Control\Stepper Control\bin\Debug\Stepper Control.exe
 D:\Documents\Massey\Year 3\MMA\MMA\Stepper Control\Stepper Control\bin\Debug\Stepper Control.pdb
 D:\Documents\Massey\Year 3\MMA\MMA\Stepper Control\Stepper Control\bin\Debug\Stepper Control.xml
+\\Mac\Home\Documents\GitHub\MMA\Stepper Control\Stepper Control\bin\Debug\Stepper Control.exe.config
+\\Mac\Home\Documents\GitHub\MMA\Stepper Control\Stepper Control\bin\Debug\Stepper Control.exe
+\\Mac\Home\Documents\GitHub\MMA\Stepper Control\Stepper Control\bin\Debug\Stepper Control.pdb
+\\Mac\Home\Documents\GitHub\MMA\Stepper Control\Stepper Control\bin\Debug\Stepper Control.xml
+\\Mac\Home\Documents\GitHub\MMA\Stepper Control\Stepper Control\obj\Debug\Stepper Control.vbprojResolveAssemblyReference.cache
+\\Mac\Home\Documents\GitHub\MMA\Stepper Control\Stepper Control\obj\Debug\Stepper_Control.runDlg.resources
+\\Mac\Home\Documents\GitHub\MMA\Stepper Control\Stepper Control\obj\Debug\Stepper_Control.Form1.resources
+\\Mac\Home\Documents\GitHub\MMA\Stepper Control\Stepper Control\obj\Debug\Stepper_Control.Resources.resources
+\\Mac\Home\Documents\GitHub\MMA\Stepper Control\Stepper Control\obj\Debug\Stepper Control.vbproj.GenerateResource.cache
+\\Mac\Home\Documents\GitHub\MMA\Stepper Control\Stepper Control\obj\Debug\Stepper Control.vbproj.CoreCompileInputs.cache
+\\Mac\Home\Documents\GitHub\MMA\Stepper Control\Stepper Control\obj\Debug\Stepper Control.exe
+\\Mac\Home\Documents\GitHub\MMA\Stepper Control\Stepper Control\obj\Debug\Stepper Control.xml
+\\Mac\Home\Documents\GitHub\MMA\Stepper Control\Stepper Control\obj\Debug\Stepper Control.pdb

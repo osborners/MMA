@@ -30,6 +30,7 @@ void Stepper::stop()
     a = 0;
     t.detach();
     a_t.detach();
+		movement = 0;
 }
 
 void Stepper::step()
@@ -40,17 +41,17 @@ void Stepper::step()
     } else {
         step_pulse = ! step_pulse;
         if(movement > 0) movement = movement - 1;
-        position += (step_direction > 0 ? 1 : -1);		
+        position += (step_direction > 0 ? -1 : 1);		
     }
 }
 
 void Stepper::move_to(int location, int speed)
 {
-    long l = (location + o)* fac;
-    if (location > position) {
-        move_by(location - position, forwards, speed);
-    } else if (location < position) {
-        move_by(position - location, backwards, speed);
+    long l = (location + o)*fac;
+    if (l > position) {
+        move_by((l - position)/fac, forwards, speed);
+    } else if (l < position) {
+        move_by((position - l)/fac, backwards, speed);
     } else {
         return;
     }
@@ -124,17 +125,16 @@ int Stepper::get_pos(void){
 
 void Stepper::switch_triggered(){
 		Stepper::stop();
-		LED_ = !LED_;
-		Stepper::run(5, backwards);
+		//LED_ = !LED_;
+		Stepper::run(5, forwards);
 }
 
 void Stepper::retract(){
 		Stepper::stop();
+		position = 0;
 
 }
 
-void Stepper::full_home(){
-		Stepper::run(30, backwards);
-		Stepper::retract();
-		position = 0;
+void Stepper::full_home(int direction){
+		Stepper::run(30, direction);
 }
