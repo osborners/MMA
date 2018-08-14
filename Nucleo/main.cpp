@@ -218,6 +218,7 @@ int main(){
 						Bridge.full_home(backwards);
 						Track_r.full_home(backwards);
 						Track_l.full_home(backwards);
+						Hoist.full_home(backwards);
 						while(Bridge.is_moving() || Hoist.is_moving() || Track_l.is_moving() || Track_r.is_moving()){
 							if (posFlag) display_pos();
 						}
