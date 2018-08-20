@@ -1,5 +1,6 @@
 #define HomeSpeed 30
 #define MoveSpeed 50
+#define HoistSpeed 50
 #include "mbed.h"
 #include "stepper.h"
 
@@ -111,6 +112,13 @@ void moveservo(int state)
     wait_ms(10);
 }
 
+void waitOnMove() {
+		while(Bridge.is_moving() || Hoist.is_moving() || Track_l.is_moving() || Track_r.is_moving()) {
+				if (posFlag) display_pos();
+		}
+		send_pos();
+}
+
 int main(){
     Don.attach(&update_pos, 0.5);
 	  servo.period_us(20000);
@@ -162,17 +170,14 @@ int main(){
 								while(!uart.readable()) if (posFlag) display_pos();
                 temp = uart.getc();
             }
-            uart.printf("DonAld\n");
+            //uart.printf("DonAld\n");
             }
         else if(value[0]=='M'& value[1]=='T'){
             Bridge.move_to(bridge_cooard,MoveSpeed);
             Track_l.move_to(track_cooard,MoveSpeed);
             Track_r.move_to(track_cooard,MoveSpeed);
-            Hoist.move_to(hoist_cooard,MoveSpeed);
-						while(Bridge.is_moving() || Hoist.is_moving() || Track_l.is_moving() || Track_r.is_moving()) {
-							if (posFlag) display_pos();
-						}
-						send_pos();
+            Hoist.move_to(hoist_cooard,HoistSpeed);
+						waitOnMove();
         }
         else if(value[0]=='M'& value[1]=='B'){
 					
@@ -201,32 +206,26 @@ int main(){
             Bridge.move_by(bridge_cooard,bridge_dir,MoveSpeed);
             Track_l.move_by(track_cooard,track_dir,MoveSpeed);
             Track_r.move_by(track_cooard,track_dir,MoveSpeed);
-            Hoist.move_by(hoist_cooard,hoist_dir,MoveSpeed);
-						while(Bridge.is_moving() || Hoist.is_moving() || Track_l.is_moving() || Track_r.is_moving()) {
-							if (posFlag) display_pos();
-						}
-						send_pos();
-						wait_ms(100);
-						uart.printf("a\n");
+            Hoist.move_by(hoist_cooard,hoist_dir,HoistSpeed);
+						waitOnMove();
         } else if(value[0]=='S'& value[1]=='V') {
 						if (bridge_cooard == 1) {
 								moveservo(1);
 						} else {
 								moveservo(0);
 						}
-				} else if(	value[0]=='H'& value[1]=='M') {
+				} else if(value[0]=='H'& value[1]=='M') {
+						Hoist.full_home(backwards);
+						waitOnMove();
 						Bridge.full_home(backwards);
 						Track_r.full_home(backwards);
 						Track_l.full_home(backwards);
-						Hoist.full_home(backwards);
-						while(Bridge.is_moving() || Hoist.is_moving() || Track_l.is_moving() || Track_r.is_moving()){
-							if (posFlag) display_pos();
-						}
-						send_pos();
-						LED = !LED;
-						send_pos();
+						waitOnMove();
+				} else {
+					continue;
 				}
-
+				//while(!uart.writeable());
+				uart.printf("a\n");
     }    
     return 0;
 }

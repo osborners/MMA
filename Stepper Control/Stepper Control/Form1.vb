@@ -98,12 +98,16 @@ Public Class Form1
         If commands Is Nothing Then Return
         If cmdLine >= 0 And cmdLine < commands.Length Then
             Thread.Sleep(200)
-            Dim s = commands(cmdLine).Split(" ")
-            If s.Length < 4 Then
+            Dim s = commands(cmdLine).Replace(vbCr, "").Split(" ")
+            If s.Length < 1 Then
                 cmdLine = -1
                 Return
             End If
-            serPort.Write(s(0) + s(1).PadLeft(4, "0") + s(2).PadLeft(4, "0") + s(3).PadLeft(5, "0").Replace(vbCr, vbLf))
+            serPort.Write(s(0))
+            For i As Integer = 1 To s.Length() - 1
+                serPort.Write(s(i).PadLeft(4, "0"))
+            Next
+            serPort.Write(vbLf)
             cmdLine += 1
         Else
             cmdLine = -1
@@ -160,20 +164,23 @@ Public Class Form1
     End Sub
 
     Dim d = New runDlg()
-    Private Sub Button15_Click(sender As Object, e As EventArgs) Handles Button15.Click
-        If d.ShowDialog = DialogResult.OK Then
+
+    Private Sub runScript()
+        If d.Controls(1).Text IsNot "" Then
             commands = d.Controls(1).Text.Split(vbLf)
             cmdLine = 0
             runNextCmd()
         End If
     End Sub
 
-    Private Sub Button13_Click(sender As Object, e As EventArgs) Handles Button13.Click
-        If d.Controls(1).Text IsNot "" Then
-            commands = d.Controls(1).Text.Split(vbLf)
-            cmdLine = 0
-            runNextCmd()
+    Private Sub Button15_Click(sender As Object, e As EventArgs) Handles Button15.Click
+        If d.ShowDialog = DialogResult.OK Then
+            runScript()
         End If
+    End Sub
+
+    Private Sub Button13_Click(sender As Object, e As EventArgs) Handles Button13.Click
+        runScript()
     End Sub
 
 End Class
