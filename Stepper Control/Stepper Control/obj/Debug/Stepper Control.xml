@@ -22,5 +22,15 @@ Stepper Control
   resource lookups using this strongly typed resource class.
 </summary>
 </member>
+<member name="T:Stepper_Control.Visulizer">
+<summary>
+Visulizer
+</summary>
+</member>
+<member name="M:Stepper_Control.Visulizer.InitializeComponent">
+<summary>
+InitializeComponent
+</summary>
+</member>
 </members>
 </doc>

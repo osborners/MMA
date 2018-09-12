@@ -3,7 +3,7 @@
 <title>Static Call Graph - [.\BUILD\MMA_Project.axf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image .\BUILD\MMA_Project.axf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060300: Last Updated: Wed Aug 15 14:26:41 2018
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060300: Last Updated: Wed Sep 12 12:02:22 2018
 <BR><P>
 <H3>Maximum Stack Usage =          0 bytes + Unknown(Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
@@ -21,20 +21,20 @@ Mutually Recursive functions
  <LI><a href="#[19]">PendSV_Handler</a>&nbsp;&nbsp;&nbsp;&rArr;&nbsp;&nbsp;&nbsp;<a href="#[19]">PendSV_Handler</a><BR>
  <LI><a href="#[1a]">SysTick_Handler</a>&nbsp;&nbsp;&nbsp;&rArr;&nbsp;&nbsp;&nbsp;<a href="#[1a]">SysTick_Handler</a><BR>
  <LI><a href="#[2d]">ADC_IRQHandler</a>&nbsp;&nbsp;&nbsp;&rArr;&nbsp;&nbsp;&nbsp;<a href="#[2d]">ADC_IRQHandler</a><BR>
- <LI><a href="#[203]">ticker_read</a>&nbsp;&nbsp;&nbsp;&rArr;&nbsp;&nbsp;&nbsp;<a href="#[1a6]">core_util_critical_section_exit</a><BR>
+ <LI><a href="#[204]">ticker_read</a>&nbsp;&nbsp;&nbsp;&rArr;&nbsp;&nbsp;&nbsp;<a href="#[1a6]">core_util_critical_section_exit</a><BR>
  <LI><a href="#[1a3]">core_util_critical_section_enter</a>&nbsp;&nbsp;&nbsp;&rArr;&nbsp;&nbsp;&nbsp;<a href="#[184]">mbed_assert_internal</a><BR>
  <LI><a href="#[1ef]">initialize</a>&nbsp;&nbsp;&nbsp;&rArr;&nbsp;&nbsp;&nbsp;<a href="#[184]">mbed_assert_internal</a><BR>
  <LI><a href="#[102]">exit</a>&nbsp;&nbsp;&nbsp;&rArr;&nbsp;&nbsp;&nbsp;<a href="#[1e5]">mbed_die</a><BR>
  <LI><a href="#[18c]">__cxa_guard_release</a>&nbsp;&nbsp;&nbsp;&rArr;&nbsp;&nbsp;&nbsp;<a href="#[184]">mbed_assert_internal</a><BR>
  <LI><a href="#[188]">__cxa_guard_acquire</a>&nbsp;&nbsp;&nbsp;&rArr;&nbsp;&nbsp;&nbsp;<a href="#[184]">mbed_assert_internal</a><BR>
- <LI><a href="#[1fb]">pinmap_merge</a>&nbsp;&nbsp;&nbsp;&rArr;&nbsp;&nbsp;&nbsp;<a href="#[17a]">error</a><BR>
+ <LI><a href="#[1fc]">pinmap_merge</a>&nbsp;&nbsp;&nbsp;&rArr;&nbsp;&nbsp;&nbsp;<a href="#[17a]">error</a><BR>
  <LI><a href="#[189]">serial_init</a>&nbsp;&nbsp;&nbsp;&rArr;&nbsp;&nbsp;&nbsp;<a href="#[1ed]">pin_mode</a><BR>
  <LI><a href="#[1e9]">pin_function</a>&nbsp;&nbsp;&nbsp;&rArr;&nbsp;&nbsp;&nbsp;<a href="#[179]">Set_GPIO_Clock</a><BR>
- <LI><a href="#[1fd]">pinmap_pinout</a>&nbsp;&nbsp;&nbsp;&rArr;&nbsp;&nbsp;&nbsp;<a href="#[1ed]">pin_mode</a><BR>
- <LI><a href="#[1fc]">pinmap_peripheral</a>&nbsp;&nbsp;&nbsp;&rArr;&nbsp;&nbsp;&nbsp;<a href="#[17a]">error</a><BR>
+ <LI><a href="#[1fe]">pinmap_pinout</a>&nbsp;&nbsp;&nbsp;&rArr;&nbsp;&nbsp;&nbsp;<a href="#[1ed]">pin_mode</a><BR>
+ <LI><a href="#[1fd]">pinmap_peripheral</a>&nbsp;&nbsp;&nbsp;&rArr;&nbsp;&nbsp;&nbsp;<a href="#[17a]">error</a><BR>
  <LI><a href="#[1e4]">mbed_error_vfprintf</a>&nbsp;&nbsp;&nbsp;&rArr;&nbsp;&nbsp;&nbsp;<a href="#[1a6]">core_util_critical_section_exit</a><BR>
  <LI><a href="#[1ed]">pin_mode</a>&nbsp;&nbsp;&nbsp;&rArr;&nbsp;&nbsp;&nbsp;<a href="#[184]">mbed_assert_internal</a><BR>
- <LI><a href="#[1f6]">mbed_error_printf</a>&nbsp;&nbsp;&nbsp;&rArr;&nbsp;&nbsp;&nbsp;<a href="#[1a6]">core_util_critical_section_exit</a><BR>
+ <LI><a href="#[1f7]">mbed_error_printf</a>&nbsp;&nbsp;&nbsp;&rArr;&nbsp;&nbsp;&nbsp;<a href="#[1a6]">core_util_critical_section_exit</a><BR>
  <LI><a href="#[1df]">core_util_atomic_decr_u16</a>&nbsp;&nbsp;&nbsp;&rArr;&nbsp;&nbsp;&nbsp;<a href="#[1df]">core_util_atomic_decr_u16</a><BR>
  <LI><a href="#[1e0]">core_util_atomic_incr_u16</a>&nbsp;&nbsp;&nbsp;&rArr;&nbsp;&nbsp;&nbsp;<a href="#[1e0]">core_util_atomic_incr_u16</a><BR>
 </UL>
@@ -759,7 +759,7 @@ Global Symbols
 <LI><a href="#[10a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_printf_char_common
 </UL>
 <BR>[Called By]<UL><LI><a href="#[1e4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;mbed_error_vfprintf
-<LI><a href="#[1f6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;mbed_error_printf
+<LI><a href="#[1f7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;mbed_error_printf
 </UL>
 
 <P><STRONG><a name="[10c]"></a>__c89vfprintf</STRONG> (Thumb, 10 bytes, Stack size 0 bytes, D:\Program Files\Keil_v5\ARM\ARMCC\Bin\..\lib\armlib\c_w.l(c89vfprintf.o)(.text))
@@ -1438,7 +1438,7 @@ Global Symbols
 <LI><a href="#[166]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_RCC_ClockConfig
 </UL>
 
-<P><STRONG><a name="[205]"></a>HAL_IncTick</STRONG> (Thumb, 12 bytes, Stack size 0 bytes, mbed/TARGET_NUCLEO_F446RE/TOOLCHAIN_ARM_STD/stm32f4xx_hal.o(i.HAL_IncTick))
+<P><STRONG><a name="[206]"></a>HAL_IncTick</STRONG> (Thumb, 12 bytes, Stack size 0 bytes, mbed/TARGET_NUCLEO_F446RE/TOOLCHAIN_ARM_STD/stm32f4xx_hal.o(i.HAL_IncTick))
 <BR><BR>[Called By]<UL><LI><a href="#[77]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;timer_irq_handler
 </UL>
 
@@ -1520,8 +1520,8 @@ Global Symbols
 <LI><a href="#[177]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SetSysClock_PLL_HSE
 </UL>
 
-<P><STRONG><a name="[200]"></a>HAL_TIMEx_PWMN_Start</STRONG> (Thumb, 44 bytes, Stack size 0 bytes, mbed/TARGET_NUCLEO_F446RE/TOOLCHAIN_ARM_STD/stm32f4xx_hal_tim_ex.o(i.HAL_TIMEx_PWMN_Start))
-<BR><BR>[Called By]<UL><LI><a href="#[1fe]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pwmout_write
+<P><STRONG><a name="[201]"></a>HAL_TIMEx_PWMN_Start</STRONG> (Thumb, 44 bytes, Stack size 0 bytes, mbed/TARGET_NUCLEO_F446RE/TOOLCHAIN_ARM_STD/stm32f4xx_hal_tim_ex.o(i.HAL_TIMEx_PWMN_Start))
+<BR><BR>[Called By]<UL><LI><a href="#[1ff]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pwmout_write
 </UL>
 
 <P><STRONG><a name="[161]"></a>HAL_TIM_OC_Init</STRONG> (Thumb, 54 bytes, Stack size 0 bytes, mbed/TARGET_NUCLEO_F446RE/TOOLCHAIN_ARM_STD/stm32f4xx_hal_tim.o(i.HAL_TIM_OC_Init))
@@ -1539,8 +1539,8 @@ Global Symbols
 <BR><BR>[Called By]<UL><LI><a href="#[15d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_InitTick
 </UL>
 
-<P><STRONG><a name="[1ff]"></a>HAL_TIM_PWM_ConfigChannel</STRONG> (Thumb, 554 bytes, Stack size 0 bytes, mbed/TARGET_NUCLEO_F446RE/TOOLCHAIN_ARM_STD/stm32f4xx_hal_tim.o(i.HAL_TIM_PWM_ConfigChannel))
-<BR><BR>[Called By]<UL><LI><a href="#[1fe]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pwmout_write
+<P><STRONG><a name="[200]"></a>HAL_TIM_PWM_ConfigChannel</STRONG> (Thumb, 554 bytes, Stack size 0 bytes, mbed/TARGET_NUCLEO_F446RE/TOOLCHAIN_ARM_STD/stm32f4xx_hal_tim.o(i.HAL_TIM_PWM_ConfigChannel))
+<BR><BR>[Called By]<UL><LI><a href="#[1ff]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pwmout_write
 </UL>
 
 <P><STRONG><a name="[16c]"></a>HAL_TIM_PWM_Init</STRONG> (Thumb, 54 bytes, Stack size 0 bytes, mbed/TARGET_NUCLEO_F446RE/TOOLCHAIN_ARM_STD/stm32f4xx_hal_tim.o(i.HAL_TIM_PWM_Init))
@@ -1554,8 +1554,8 @@ Global Symbols
 <BR><BR>[Called By]<UL><LI><a href="#[16c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_TIM_PWM_Init
 </UL>
 
-<P><STRONG><a name="[201]"></a>HAL_TIM_PWM_Start</STRONG> (Thumb, 64 bytes, Stack size 0 bytes, mbed/TARGET_NUCLEO_F446RE/TOOLCHAIN_ARM_STD/stm32f4xx_hal_tim.o(i.HAL_TIM_PWM_Start))
-<BR><BR>[Called By]<UL><LI><a href="#[1fe]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pwmout_write
+<P><STRONG><a name="[202]"></a>HAL_TIM_PWM_Start</STRONG> (Thumb, 64 bytes, Stack size 0 bytes, mbed/TARGET_NUCLEO_F446RE/TOOLCHAIN_ARM_STD/stm32f4xx_hal_tim.o(i.HAL_TIM_PWM_Start))
+<BR><BR>[Called By]<UL><LI><a href="#[1ff]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pwmout_write
 </UL>
 
 <P><STRONG><a name="[171]"></a>HAL_UART_ErrorCallback</STRONG> (Thumb, 48 bytes, Stack size 0 bytes, mbed/TARGET_NUCLEO_F446RE/TOOLCHAIN_ARM_STD/serial_device.o(i.HAL_UART_ErrorCallback))
@@ -1625,7 +1625,7 @@ Global Symbols
 <LI><a href="#[1ed]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pin_mode
 </UL>
 
-<P><STRONG><a name="[1f7]"></a>SystemCoreClockUpdate</STRONG> (Thumb, 112 bytes, Stack size 0 bytes, mbed/TARGET_NUCLEO_F446RE/TOOLCHAIN_ARM_STD/system_stm32f4xx.o(i.SystemCoreClockUpdate))
+<P><STRONG><a name="[1f8]"></a>SystemCoreClockUpdate</STRONG> (Thumb, 112 bytes, Stack size 0 bytes, mbed/TARGET_NUCLEO_F446RE/TOOLCHAIN_ARM_STD/system_stm32f4xx.o(i.SystemCoreClockUpdate))
 <BR><BR>[Called By]<UL><LI><a href="#[1dc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;mbed_sdk_init
 </UL>
 
@@ -2105,7 +2105,7 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[1de]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;open
 </UL>
 
-<P><STRONG><a name="[1f8]"></a>mbed::FilePath::exists()</STRONG> (Thumb, 10 bytes, Stack size 0 bytes, mbed/TARGET_NUCLEO_F446RE/TOOLCHAIN_ARM_STD/mbed.ar(FilePath.o)(i._ZN4mbed8FilePath6existsEv))
+<P><STRONG><a name="[1f9]"></a>mbed::FilePath::exists()</STRONG> (Thumb, 10 bytes, Stack size 0 bytes, mbed/TARGET_NUCLEO_F446RE/TOOLCHAIN_ARM_STD/mbed.ar(FilePath.o)(i._ZN4mbed8FilePath6existsEv))
 <BR><BR>[Called By]<UL><LI><a href="#[1de]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;open
 </UL>
 
@@ -2115,7 +2115,7 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[1de]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;open
 </UL>
 
-<P><STRONG><a name="[1f9]"></a>mbed::FilePath::fileName()</STRONG> (Thumb, 4 bytes, Stack size 0 bytes, mbed/TARGET_NUCLEO_F446RE/TOOLCHAIN_ARM_STD/mbed.ar(FilePath.o)(i._ZN4mbed8FilePath8fileNameEv))
+<P><STRONG><a name="[1fa]"></a>mbed::FilePath::fileName()</STRONG> (Thumb, 4 bytes, Stack size 0 bytes, mbed/TARGET_NUCLEO_F446RE/TOOLCHAIN_ARM_STD/mbed.ar(FilePath.o)(i._ZN4mbed8FilePath8fileNameEv))
 <BR><BR>[Called By]<UL><LI><a href="#[1de]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;open
 </UL>
 
@@ -2208,6 +2208,10 @@ Global Symbols
 <P><STRONG><a name="[17e]"></a>Stepper::is_moving()</STRONG> (Thumb, 10 bytes, Stack size 0 bytes, .\build\stepper.o(i._ZN7Stepper9is_movingEv))
 <BR><BR>[Called By]<UL><LI><a href="#[17d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;display_pos()
 <LI><a href="#[17c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;waitOnMove()
+</UL>
+
+<P><STRONG><a name="[1f6]"></a>Stepper::set_accel(int)</STRONG> (Thumb, 4 bytes, Stack size 0 bytes, .\build\stepper.o(i._ZN7Stepper9set_accelEi))
+<BR><BR>[Called By]<UL><LI><a href="#[159]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;$Super$$main
 </UL>
 
 <P><STRONG><a name="[1d7]"></a>Stepper::Stepper(PinName, PinName, PinName, int)</STRONG> (Thumb, 124 bytes, Stack size 0 bytes, .\build\stepper.o(i._ZN7StepperC1E7PinNameS0_S0_i))
@@ -2371,10 +2375,10 @@ Global Symbols
 <LI><a href="#[1e1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;hal_critical_section_enter
 </UL>
 <BR>[Called By]<UL><LI><a href="#[159]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;$Super$$main
-<LI><a href="#[203]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ticker_read
+<LI><a href="#[204]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ticker_read
 <LI><a href="#[1e5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;mbed_die
 <LI><a href="#[1e4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;mbed_error_vfprintf
-<LI><a href="#[1f6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;mbed_error_printf
+<LI><a href="#[1f7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;mbed_error_printf
 <LI><a href="#[184]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;mbed_assert_internal
 <LI><a href="#[1ae]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ticker_set_handler
 <LI><a href="#[1ab]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ticker_remove_event
@@ -2400,9 +2404,9 @@ Global Symbols
 <BR><BR>[Calls]<UL><LI><a href="#[1e2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;hal_critical_section_exit
 </UL>
 <BR>[Called By]<UL><LI><a href="#[159]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;$Super$$main
-<LI><a href="#[203]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ticker_read
+<LI><a href="#[204]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ticker_read
 <LI><a href="#[1e4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;mbed_error_vfprintf
-<LI><a href="#[1f6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;mbed_error_printf
+<LI><a href="#[1f7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;mbed_error_printf
 <LI><a href="#[1ae]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ticker_set_handler
 <LI><a href="#[1ab]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ticker_remove_event
 <LI><a href="#[1a9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ticker_insert_event_us
@@ -2427,16 +2431,16 @@ Global Symbols
 <BR><BR>[Calls]<UL><LI><a href="#[102]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;exit
 <LI><a href="#[1e4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;mbed_error_vfprintf
 </UL>
-<BR>[Called By]<UL><LI><a href="#[1fe]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pwmout_write
+<BR>[Called By]<UL><LI><a href="#[1ff]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pwmout_write
 <LI><a href="#[1f5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pwmout_period_us
 <LI><a href="#[189]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;serial_init
 <LI><a href="#[1b5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;gpio_irq_init
 <LI><a href="#[1ec]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;handle_interrupt_in
 <LI><a href="#[179]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Set_GPIO_Clock
-<LI><a href="#[1fb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pinmap_merge
-<LI><a href="#[1fd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pinmap_pinout
-<LI><a href="#[1fc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pinmap_peripheral
-<LI><a href="#[1fa]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pinmap_function
+<LI><a href="#[1fc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pinmap_merge
+<LI><a href="#[1fe]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pinmap_pinout
+<LI><a href="#[1fd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pinmap_peripheral
+<LI><a href="#[1fb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pinmap_function
 <LI><a href="#[1bc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;mbed::Stream::Stream__sub_object(const char*)
 <LI><a href="#[19c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;sleep_manager_unlock_deep_sleep_internal
 <LI><a href="#[1a4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;sleep_manager_lock_deep_sleep_internal
@@ -2461,8 +2465,8 @@ Global Symbols
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> _printf_char_file.o(.text)
 </UL>
-<P><STRONG><a name="[207]"></a>get_uart_index</STRONG> (Thumb, 84 bytes, Stack size 0 bytes, mbed/TARGET_NUCLEO_F446RE/TOOLCHAIN_ARM_STD/serial_api.o(i.get_uart_index))
-<BR><BR>[Called By]<UL><LI><a href="#[206]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;uart_irq
+<P><STRONG><a name="[208]"></a>get_uart_index</STRONG> (Thumb, 84 bytes, Stack size 0 bytes, mbed/TARGET_NUCLEO_F446RE/TOOLCHAIN_ARM_STD/serial_api.o(i.get_uart_index))
+<BR><BR>[Called By]<UL><LI><a href="#[207]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;uart_irq
 </UL>
 
 <P><STRONG><a name="[1ad]"></a>get_us_ticker_data</STRONG> (Thumb, 4 bytes, Stack size 0 bytes, mbed/TARGET_NUCLEO_F446RE/TOOLCHAIN_ARM_STD/mbed.ar(mbed_us_ticker_api.o)(i.get_us_ticker_data))
@@ -2545,7 +2549,7 @@ Global Symbols
 <LI><a href="#[189]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;serial_init
 </UL>
 
-<P><STRONG><a name="[159]"></a>$Super$$main</STRONG> (Thumb, 680 bytes, Stack size 0 bytes, .\build\main.o(i.main))
+<P><STRONG><a name="[159]"></a>$Super$$main</STRONG> (Thumb, 710 bytes, Stack size 0 bytes, .\build\main.o(i.main))
 <BR><BR>[Calls]<UL><LI><a href="#[1f5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pwmout_period_us
 <LI><a href="#[1a6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;core_util_critical_section_exit
 <LI><a href="#[1a3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;core_util_critical_section_enter
@@ -2555,6 +2559,7 @@ Global Symbols
 <LI><a href="#[18f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;mbed::Serial::readable()
 <LI><a href="#[1d1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;mbed::DigitalOut::operator =(int)
 <LI><a href="#[1a4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;sleep_manager_lock_deep_sleep_internal
+<LI><a href="#[1f6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Stepper::set_accel(int)
 <LI><a href="#[1d6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Stepper::full_home(int)
 <LI><a href="#[1d5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Stepper::move_to(int, int)
 <LI><a href="#[1d4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Stepper::move_by(int, int, int)
@@ -2575,7 +2580,7 @@ Global Symbols
 <P><STRONG><a name="[184]"></a>mbed_assert_internal</STRONG> (Thumb, 32 bytes, Stack size 0 bytes, mbed/TARGET_NUCLEO_F446RE/TOOLCHAIN_ARM_STD/mbed.ar(mbed_assert.o)(i.mbed_assert_internal))
 <BR><BR>[Calls]<UL><LI><a href="#[1e5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;mbed_die
 <LI><a href="#[1a3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;core_util_critical_section_enter
-<LI><a href="#[1f6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;mbed_error_printf
+<LI><a href="#[1f7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;mbed_error_printf
 </UL>
 <BR>[Called By]<UL><LI><a href="#[1d9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pwmout_init
 <LI><a href="#[1ce]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;mbed::FilePath::FilePath(const char*)
@@ -2602,7 +2607,7 @@ Global Symbols
 <LI><a href="#[184]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;mbed_assert_internal
 </UL>
 
-<P><STRONG><a name="[1f6]"></a>mbed_error_printf</STRONG> (Thumb, 76 bytes, Stack size 0 bytes, mbed/TARGET_NUCLEO_F446RE/TOOLCHAIN_ARM_STD/mbed_board.o(i.mbed_error_printf))
+<P><STRONG><a name="[1f7]"></a>mbed_error_printf</STRONG> (Thumb, 76 bytes, Stack size 0 bytes, mbed/TARGET_NUCLEO_F446RE/TOOLCHAIN_ARM_STD/mbed_board.o(i.mbed_error_printf))
 <BR><BR>[Calls]<UL><LI><a href="#[196]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;serial_putc
 <LI><a href="#[189]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;serial_init
 <LI><a href="#[1a6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;core_util_critical_section_exit
@@ -2627,7 +2632,7 @@ Global Symbols
 </UL>
 
 <P><STRONG><a name="[1dc]"></a>mbed_sdk_init</STRONG> (Thumb, 22 bytes, Stack size 0 bytes, mbed/TARGET_NUCLEO_F446RE/TOOLCHAIN_ARM_STD/mbed_overrides.o(i.mbed_sdk_init))
-<BR><BR>[Calls]<UL><LI><a href="#[1f7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SystemCoreClockUpdate
+<BR><BR>[Calls]<UL><LI><a href="#[1f8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SystemCoreClockUpdate
 <LI><a href="#[176]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SetSysClock
 <LI><a href="#[15b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_Init
 </UL>
@@ -2636,9 +2641,9 @@ Global Symbols
 
 <P><STRONG><a name="[1de]"></a>open</STRONG> (Thumb, 176 bytes, Stack size 0 bytes, mbed/TARGET_NUCLEO_F446RE/TOOLCHAIN_ARM_STD/mbed_retarget.o(i.open))
 <BR><BR>[Calls]<UL><LI><a href="#[1ce]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;mbed::FilePath::FilePath(const char*)
-<LI><a href="#[1f9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;mbed::FilePath::fileName()
+<LI><a href="#[1fa]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;mbed::FilePath::fileName()
 <LI><a href="#[1cd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;mbed::FilePath::isFile()
-<LI><a href="#[1f8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;mbed::FilePath::exists()
+<LI><a href="#[1f9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;mbed::FilePath::exists()
 <LI><a href="#[1cc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;mbed::FilePath::file()
 <LI><a href="#[1ca]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;mbed::FilePath::fileSystem()
 <LI><a href="#[183]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;reserve_filehandle()
@@ -2652,7 +2657,7 @@ Global Symbols
 <LI><a href="#[184]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;mbed_assert_internal
 </UL>
 <BR>[Called By]<UL><LI><a href="#[1e8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;gpio_init
-<LI><a href="#[1fd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pinmap_pinout
+<LI><a href="#[1fe]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pinmap_pinout
 </UL>
 
 <P><STRONG><a name="[1ed]"></a>pin_mode</STRONG> (Thumb, 232 bytes, Stack size 0 bytes, mbed/TARGET_NUCLEO_F446RE/TOOLCHAIN_ARM_STD/pinmap.o(i.pin_mode))
@@ -2661,29 +2666,29 @@ Global Symbols
 </UL>
 <BR>[Called By]<UL><LI><a href="#[189]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;serial_init
 <LI><a href="#[1eb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;gpio_mode
-<LI><a href="#[1fd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pinmap_pinout
+<LI><a href="#[1fe]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pinmap_pinout
 </UL>
 
-<P><STRONG><a name="[1fa]"></a>pinmap_function</STRONG> (Thumb, 62 bytes, Stack size 0 bytes, mbed/TARGET_NUCLEO_F446RE/TOOLCHAIN_ARM_STD/mbed.ar(mbed_pinmap_common.o)(i.pinmap_function))
+<P><STRONG><a name="[1fb]"></a>pinmap_function</STRONG> (Thumb, 62 bytes, Stack size 0 bytes, mbed/TARGET_NUCLEO_F446RE/TOOLCHAIN_ARM_STD/mbed.ar(mbed_pinmap_common.o)(i.pinmap_function))
 <BR><BR>[Calls]<UL><LI><a href="#[17a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;error
 </UL>
 <BR>[Called By]<UL><LI><a href="#[1d9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pwmout_init
 </UL>
 
-<P><STRONG><a name="[1fb]"></a>pinmap_merge</STRONG> (Thumb, 38 bytes, Stack size 0 bytes, mbed/TARGET_NUCLEO_F446RE/TOOLCHAIN_ARM_STD/mbed.ar(mbed_pinmap_common.o)(i.pinmap_merge))
+<P><STRONG><a name="[1fc]"></a>pinmap_merge</STRONG> (Thumb, 38 bytes, Stack size 0 bytes, mbed/TARGET_NUCLEO_F446RE/TOOLCHAIN_ARM_STD/mbed.ar(mbed_pinmap_common.o)(i.pinmap_merge))
 <BR><BR>[Calls]<UL><LI><a href="#[17a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;error
 </UL>
 <BR>[Called By]<UL><LI><a href="#[189]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;serial_init
 </UL>
 
-<P><STRONG><a name="[1fc]"></a>pinmap_peripheral</STRONG> (Thumb, 62 bytes, Stack size 0 bytes, mbed/TARGET_NUCLEO_F446RE/TOOLCHAIN_ARM_STD/mbed.ar(mbed_pinmap_common.o)(i.pinmap_peripheral))
+<P><STRONG><a name="[1fd]"></a>pinmap_peripheral</STRONG> (Thumb, 62 bytes, Stack size 0 bytes, mbed/TARGET_NUCLEO_F446RE/TOOLCHAIN_ARM_STD/mbed.ar(mbed_pinmap_common.o)(i.pinmap_peripheral))
 <BR><BR>[Calls]<UL><LI><a href="#[17a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;error
 </UL>
 <BR>[Called By]<UL><LI><a href="#[1d9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pwmout_init
 <LI><a href="#[189]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;serial_init
 </UL>
 
-<P><STRONG><a name="[1fd]"></a>pinmap_pinout</STRONG> (Thumb, 72 bytes, Stack size 0 bytes, mbed/TARGET_NUCLEO_F446RE/TOOLCHAIN_ARM_STD/mbed.ar(mbed_pinmap_common.o)(i.pinmap_pinout))
+<P><STRONG><a name="[1fe]"></a>pinmap_pinout</STRONG> (Thumb, 72 bytes, Stack size 0 bytes, mbed/TARGET_NUCLEO_F446RE/TOOLCHAIN_ARM_STD/mbed.ar(mbed_pinmap_common.o)(i.pinmap_pinout))
 <BR><BR>[Calls]<UL><LI><a href="#[1e9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pin_function
 <LI><a href="#[1ed]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pin_mode
 <LI><a href="#[17a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;error
@@ -2694,9 +2699,9 @@ Global Symbols
 
 <P><STRONG><a name="[1d9]"></a>pwmout_init</STRONG> (Thumb, 440 bytes, Stack size 0 bytes, mbed/TARGET_NUCLEO_F446RE/TOOLCHAIN_ARM_STD/pwmout_api.o(i.pwmout_init))
 <BR><BR>[Calls]<UL><LI><a href="#[1f5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pwmout_period_us
-<LI><a href="#[1fd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pinmap_pinout
-<LI><a href="#[1fc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pinmap_peripheral
-<LI><a href="#[1fa]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pinmap_function
+<LI><a href="#[1fe]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pinmap_pinout
+<LI><a href="#[1fd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pinmap_peripheral
+<LI><a href="#[1fb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pinmap_function
 <LI><a href="#[184]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;mbed_assert_internal
 </UL>
 <BR>[Called By]<UL><LI><a href="#[c3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__sti___8_main_cpp_button
@@ -2705,7 +2710,7 @@ Global Symbols
 <P><STRONG><a name="[1f5]"></a>pwmout_period_us</STRONG> (Thumb, 340 bytes, Stack size 0 bytes, mbed/TARGET_NUCLEO_F446RE/TOOLCHAIN_ARM_STD/pwmout_api.o(i.pwmout_period_us))
 <BR><BR>[Calls]<UL><LI><a href="#[16c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_TIM_PWM_Init
 <LI><a href="#[17b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_RCC_GetPCLK2Freq
-<LI><a href="#[1fe]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pwmout_write
+<LI><a href="#[1ff]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pwmout_write
 <LI><a href="#[15f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_RCC_GetClockConfig
 <LI><a href="#[160]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_RCC_GetPCLK1Freq
 <LI><a href="#[17a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;error
@@ -2718,10 +2723,10 @@ Global Symbols
 <BR><BR>[Called By]<UL><LI><a href="#[193]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;mbed::PwmOut::pulsewidth_us(int)
 </UL>
 
-<P><STRONG><a name="[1fe]"></a>pwmout_write</STRONG> (Thumb, 170 bytes, Stack size 0 bytes, mbed/TARGET_NUCLEO_F446RE/TOOLCHAIN_ARM_STD/pwmout_api.o(i.pwmout_write))
-<BR><BR>[Calls]<UL><LI><a href="#[201]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_TIM_PWM_Start
-<LI><a href="#[1ff]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_TIM_PWM_ConfigChannel
-<LI><a href="#[200]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_TIMEx_PWMN_Start
+<P><STRONG><a name="[1ff]"></a>pwmout_write</STRONG> (Thumb, 170 bytes, Stack size 0 bytes, mbed/TARGET_NUCLEO_F446RE/TOOLCHAIN_ARM_STD/pwmout_api.o(i.pwmout_write))
+<BR><BR>[Calls]<UL><LI><a href="#[202]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_TIM_PWM_Start
+<LI><a href="#[200]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_TIM_PWM_ConfigChannel
+<LI><a href="#[201]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_TIMEx_PWMN_Start
 <LI><a href="#[17a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;error
 </UL>
 <BR>[Called By]<UL><LI><a href="#[1f5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pwmout_period_us
@@ -2745,17 +2750,17 @@ Global Symbols
 
 <P><STRONG><a name="[189]"></a>serial_init</STRONG> (Thumb, 570 bytes, Stack size 0 bytes, mbed/TARGET_NUCLEO_F446RE/TOOLCHAIN_ARM_STD/serial_api.o(i.serial_init))
 <BR><BR>[Calls]<UL><LI><a href="#[1ee]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;init_uart
-<LI><a href="#[1fb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pinmap_merge
+<LI><a href="#[1fc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pinmap_merge
 <LI><a href="#[1ed]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pin_mode
-<LI><a href="#[1fd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pinmap_pinout
-<LI><a href="#[1fc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pinmap_peripheral
+<LI><a href="#[1fe]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pinmap_pinout
+<LI><a href="#[1fd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pinmap_peripheral
 <LI><a href="#[184]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;mbed_assert_internal
 <LI><a href="#[17a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;error
 <LI><a href="#[1db]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memcpy4
 </UL>
 <BR>[Called By]<UL><LI><a href="#[185]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;get_fhc(int)
 <LI><a href="#[1e4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;mbed_error_vfprintf
-<LI><a href="#[1f6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;mbed_error_printf
+<LI><a href="#[1f7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;mbed_error_printf
 <LI><a href="#[1a0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;mbed::SerialBase::SerialBase(PinName, PinName, int)
 </UL>
 
@@ -2774,11 +2779,11 @@ Global Symbols
 </UL>
 
 <P><STRONG><a name="[196]"></a>serial_putc</STRONG> (Thumb, 34 bytes, Stack size 0 bytes, mbed/TARGET_NUCLEO_F446RE/TOOLCHAIN_ARM_STD/serial_device.o(i.serial_putc))
-<BR><BR>[Calls]<UL><LI><a href="#[202]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;serial_writable
+<BR><BR>[Calls]<UL><LI><a href="#[203]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;serial_writable
 </UL>
 <BR>[Called By]<UL><LI><a href="#[9f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DirectSerial::write(const void*, unsigned)
 <LI><a href="#[1e4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;mbed_error_vfprintf
-<LI><a href="#[1f6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;mbed_error_printf
+<LI><a href="#[1f7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;mbed_error_printf
 <LI><a href="#[19a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;mbed::SerialBase::_base_putc(int)
 </UL>
 
@@ -2787,7 +2792,7 @@ Global Symbols
 <LI><a href="#[19e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;mbed::SerialBase::readable()
 </UL>
 
-<P><STRONG><a name="[202]"></a>serial_writable</STRONG> (Thumb, 18 bytes, Stack size 0 bytes, mbed/TARGET_NUCLEO_F446RE/TOOLCHAIN_ARM_STD/serial_api.o(i.serial_writable))
+<P><STRONG><a name="[203]"></a>serial_writable</STRONG> (Thumb, 18 bytes, Stack size 0 bytes, mbed/TARGET_NUCLEO_F446RE/TOOLCHAIN_ARM_STD/serial_api.o(i.serial_writable))
 <BR><BR>[Called By]<UL><LI><a href="#[196]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;serial_putc
 </UL>
 
@@ -2832,7 +2837,7 @@ Global Symbols
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> mbed_us_ticker_api.o(.data)
 </UL>
-<P><STRONG><a name="[203]"></a>ticker_read</STRONG> (Thumb, 28 bytes, Stack size 0 bytes, mbed/TARGET_NUCLEO_F446RE/TOOLCHAIN_ARM_STD/mbed.ar(mbed_ticker_api.o)(i.ticker_read))
+<P><STRONG><a name="[204]"></a>ticker_read</STRONG> (Thumb, 28 bytes, Stack size 0 bytes, mbed/TARGET_NUCLEO_F446RE/TOOLCHAIN_ARM_STD/mbed.ar(mbed_ticker_api.o)(i.ticker_read))
 <BR><BR>[Calls]<UL><LI><a href="#[1a6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;core_util_critical_section_exit
 <LI><a href="#[1a3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;core_util_critical_section_enter
 <LI><a href="#[1f1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;update_present_time
@@ -2868,8 +2873,8 @@ Global Symbols
 </UL>
 
 <P><STRONG><a name="[77]"></a>timer_irq_handler</STRONG> (Thumb, 90 bytes, Stack size 0 bytes, mbed/TARGET_NUCLEO_F446RE/TOOLCHAIN_ARM_STD/hal_tick_32b.o(i.timer_irq_handler))
-<BR><BR>[Calls]<UL><LI><a href="#[204]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;us_ticker_irq_handler
-<LI><a href="#[205]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_IncTick
+<BR><BR>[Calls]<UL><LI><a href="#[205]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;us_ticker_irq_handler
+<LI><a href="#[206]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_IncTick
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> hal_tick_32b.o(i.HAL_InitTick)
 </UL>
@@ -2888,7 +2893,7 @@ Global Symbols
 <P><STRONG><a name="[97]"></a>us_ticker_init</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, mbed/TARGET_NUCLEO_F446RE/TOOLCHAIN_ARM_STD/us_ticker_32b.o(i.us_ticker_init))
 <BR>[Address Reference Count : 1]<UL><LI> mbed_us_ticker_api.o(.constdata)
 </UL>
-<P><STRONG><a name="[204]"></a>us_ticker_irq_handler</STRONG> (Thumb, 14 bytes, Stack size 0 bytes, mbed/TARGET_NUCLEO_F446RE/TOOLCHAIN_ARM_STD/mbed.ar(mbed_us_ticker_api.o)(i.us_ticker_irq_handler))
+<P><STRONG><a name="[205]"></a>us_ticker_irq_handler</STRONG> (Thumb, 14 bytes, Stack size 0 bytes, mbed/TARGET_NUCLEO_F446RE/TOOLCHAIN_ARM_STD/mbed.ar(mbed_us_ticker_api.o)(i.us_ticker_irq_handler))
 <BR><BR>[Called By]<UL><LI><a href="#[77]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;timer_irq_handler
 </UL>
 
@@ -2899,7 +2904,7 @@ Global Symbols
 <BR>[Address Reference Count : 1]<UL><LI> mbed_us_ticker_api.o(.constdata)
 </UL>
 <P><STRONG><a name="[194]"></a>wait_ms</STRONG> (Thumb, 36 bytes, Stack size 0 bytes, mbed/TARGET_NUCLEO_F446RE/TOOLCHAIN_ARM_STD/mbed.ar(mbed_wait_api_no_rtos.o)(i.wait_ms))
-<BR><BR>[Calls]<UL><LI><a href="#[203]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ticker_read
+<BR><BR>[Calls]<UL><LI><a href="#[204]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ticker_read
 <LI><a href="#[1ad]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;get_us_ticker_data
 </UL>
 <BR>[Called By]<UL><LI><a href="#[1e5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;mbed_die
@@ -2974,8 +2979,8 @@ Global Symbols
 <P><STRONG><a name="[7a]"></a>CThunk&lang;mbed::SerialBase&rang;::trampoline(mbed::SerialBase*, void*, void(mbed::SerialBase::**)(void*))</STRONG> (Thumb, 54 bytes, Stack size 0 bytes, mbed/TARGET_NUCLEO_F446RE/TOOLCHAIN_ARM_STD/mbed.ar(SerialBase.o)(t._ZN6CThunkIN4mbed10SerialBaseEE10trampolineEPS1_PvPMS1_FvS4_E))
 <BR>[Address Reference Count : 1]<UL><LI> SerialBase.o(i._ZN4mbed10SerialBaseC1E7PinNameS1_i)
 </UL>
-<P><STRONG><a name="[209]"></a>__fpl_fnaninf</STRONG> (Thumb, 140 bytes, Stack size 0 bytes, D:\Program Files\Keil_v5\ARM\ARMCC\Bin\..\lib\armlib\fz_wm.l(fnaninf.o)(x$fpl$fnaninf), UNUSED)
-<BR><BR>[Called By]<UL><LI><a href="#[208]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_ll_ufrom_f
+<P><STRONG><a name="[20a]"></a>__fpl_fnaninf</STRONG> (Thumb, 140 bytes, Stack size 0 bytes, D:\Program Files\Keil_v5\ARM\ARMCC\Bin\..\lib\armlib\fz_wm.l(fnaninf.o)(x$fpl$fnaninf), UNUSED)
+<BR><BR>[Called By]<UL><LI><a href="#[209]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_ll_ufrom_f
 </UL>
 
 <P><STRONG><a name="[ef]"></a>_fp_init</STRONG> (Thumb, 10 bytes, Stack size 0 bytes, D:\Program Files\Keil_v5\ARM\ARMCC\Bin\..\lib\armlib\fz_wm.l(fpinit.o)(x$fpl$fpinit))
@@ -2986,8 +2991,8 @@ Global Symbols
 <BR><BR>[Called By]<UL><LI><a href="#[159]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;$Super$$main
 </UL>
 
-<P><STRONG><a name="[208]"></a>_ll_ufrom_f</STRONG> (Thumb, 92 bytes, Stack size 0 bytes, D:\Program Files\Keil_v5\ARM\ARMCC\Bin\..\lib\armlib\fz_wm.l(ffixull.o)(x$fpl$llufromf), UNUSED)
-<BR><BR>[Calls]<UL><LI><a href="#[209]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__fpl_fnaninf
+<P><STRONG><a name="[209]"></a>_ll_ufrom_f</STRONG> (Thumb, 92 bytes, Stack size 0 bytes, D:\Program Files\Keil_v5\ARM\ARMCC\Bin\..\lib\armlib\fz_wm.l(ffixull.o)(x$fpl$llufromf), UNUSED)
+<BR><BR>[Calls]<UL><LI><a href="#[20a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__fpl_fnaninf
 </UL>
 
 <P><STRONG><a name="[d1]"></a>_printf_fp_dec</STRONG> (Thumb, 4 bytes, Stack size 0 bytes, D:\Program Files\Keil_v5\ARM\ARMCC\Bin\..\lib\armlib\fz_wm.l(printf1.o)(x$fpl$printf1))
@@ -3097,37 +3102,37 @@ Local Symbols
 </UL>
 
 <P><STRONG><a name="[90]"></a>uart1_irq</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, mbed/TARGET_NUCLEO_F446RE/TOOLCHAIN_ARM_STD/serial_device.o(i.uart1_irq))
-<BR><BR>[Calls]<UL><LI><a href="#[206]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;uart_irq
+<BR><BR>[Calls]<UL><LI><a href="#[207]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;uart_irq
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> serial_device.o(i.serial_irq_set)
 </UL>
 <P><STRONG><a name="[8d]"></a>uart2_irq</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, mbed/TARGET_NUCLEO_F446RE/TOOLCHAIN_ARM_STD/serial_device.o(i.uart2_irq))
-<BR><BR>[Calls]<UL><LI><a href="#[206]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;uart_irq
+<BR><BR>[Calls]<UL><LI><a href="#[207]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;uart_irq
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> serial_device.o(i.serial_irq_set)
 </UL>
 <P><STRONG><a name="[8e]"></a>uart3_irq</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, mbed/TARGET_NUCLEO_F446RE/TOOLCHAIN_ARM_STD/serial_device.o(i.uart3_irq))
-<BR><BR>[Calls]<UL><LI><a href="#[206]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;uart_irq
+<BR><BR>[Calls]<UL><LI><a href="#[207]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;uart_irq
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> serial_device.o(i.serial_irq_set)
 </UL>
 <P><STRONG><a name="[8f]"></a>uart4_irq</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, mbed/TARGET_NUCLEO_F446RE/TOOLCHAIN_ARM_STD/serial_device.o(i.uart4_irq))
-<BR><BR>[Calls]<UL><LI><a href="#[206]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;uart_irq
+<BR><BR>[Calls]<UL><LI><a href="#[207]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;uart_irq
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> serial_device.o(i.serial_irq_set)
 </UL>
 <P><STRONG><a name="[8c]"></a>uart5_irq</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, mbed/TARGET_NUCLEO_F446RE/TOOLCHAIN_ARM_STD/serial_device.o(i.uart5_irq))
-<BR><BR>[Calls]<UL><LI><a href="#[206]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;uart_irq
+<BR><BR>[Calls]<UL><LI><a href="#[207]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;uart_irq
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> serial_device.o(i.serial_irq_set)
 </UL>
 <P><STRONG><a name="[91]"></a>uart6_irq</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, mbed/TARGET_NUCLEO_F446RE/TOOLCHAIN_ARM_STD/serial_device.o(i.uart6_irq))
-<BR><BR>[Calls]<UL><LI><a href="#[206]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;uart_irq
+<BR><BR>[Calls]<UL><LI><a href="#[207]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;uart_irq
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> serial_device.o(i.serial_irq_set)
 </UL>
-<P><STRONG><a name="[206]"></a>uart_irq</STRONG> (Thumb, 108 bytes, Stack size 0 bytes, mbed/TARGET_NUCLEO_F446RE/TOOLCHAIN_ARM_STD/serial_device.o(i.uart_irq))
-<BR><BR>[Calls]<UL><LI><a href="#[207]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;get_uart_index
+<P><STRONG><a name="[207]"></a>uart_irq</STRONG> (Thumb, 108 bytes, Stack size 0 bytes, mbed/TARGET_NUCLEO_F446RE/TOOLCHAIN_ARM_STD/serial_device.o(i.uart_irq))
+<BR><BR>[Calls]<UL><LI><a href="#[208]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;get_uart_index
 </UL>
 <BR>[Called By]<UL><LI><a href="#[91]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;uart6_irq
 <LI><a href="#[8c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;uart5_irq
@@ -3179,7 +3184,7 @@ Local Symbols
 <LI><a href="#[1f1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;update_present_time
 <LI><a href="#[1f2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;schedule_interrupt
 </UL>
-<BR>[Called By]<UL><LI><a href="#[203]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ticker_read
+<BR>[Called By]<UL><LI><a href="#[204]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ticker_read
 <LI><a href="#[1ae]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ticker_set_handler
 <LI><a href="#[1c2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ticker_read_us
 </UL>
@@ -3197,7 +3202,7 @@ Local Symbols
 <P><STRONG><a name="[1f1]"></a>update_present_time</STRONG> (Thumb, 254 bytes, Stack size 0 bytes, mbed/TARGET_NUCLEO_F446RE/TOOLCHAIN_ARM_STD/mbed.ar(mbed_ticker_api.o)(i.update_present_time))
 <BR><BR>[Calls]<UL><LI><a href="#[168]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_uldivmod
 </UL>
-<BR>[Called By]<UL><LI><a href="#[203]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ticker_read
+<BR>[Called By]<UL><LI><a href="#[204]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ticker_read
 <LI><a href="#[1a9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ticker_insert_event_us
 <LI><a href="#[1c2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ticker_read_us
 <LI><a href="#[1f2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;schedule_interrupt

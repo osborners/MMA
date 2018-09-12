@@ -14,7 +14,6 @@ Stepper::Stepper(PinName pd, PinName pp, PinName lmt, int f):
 		limit_switch.enable_irq();
 }
 
-
 void Stepper::inc_s()
 {
     cs += a;

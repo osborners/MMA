@@ -1,6 +1,7 @@
 #define HomeSpeed 30
 #define MoveSpeed 50
 #define HoistSpeed 50
+#define ACCEL 1
 #include "mbed.h"
 #include "stepper.h"
 
@@ -125,6 +126,10 @@ int main(){
     uart.baud(9600);
     stepper_enable = 1;
 		HALL = 1;
+	
+		Track_r.set_accel(ACCEL);
+		Track_l.set_accel(ACCEL);
+		Bridge.set_accel(ACCEL);
 	
 	  char value[14];
 	
