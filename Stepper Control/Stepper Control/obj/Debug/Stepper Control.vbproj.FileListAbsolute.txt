@@ -34,18 +34,6 @@ D:\Documents\Massey\Year 3\Stepper Control\Stepper Control\obj\Debug\Stepper_Con
 D:\Documents\Massey\Year 3\Stepper Control\Stepper Control\obj\Debug\Stepper_Control.Resources.resources
 D:\Documents\Massey\Year 3\Stepper Control\Stepper Control\obj\Debug\Stepper Control.vbproj.GenerateResource.Cache
 D:\Documents\Massey\Year 3\Stepper Control\Stepper Control\obj\Debug\Stepper_Control.runDlg.resources
-D:\Documents\Massey\Year 3\MMA\MMA\Stepper Control\Stepper Control\bin\Debug\Stepper Control.exe.config
-D:\Documents\Massey\Year 3\MMA\MMA\Stepper Control\Stepper Control\obj\Debug\Stepper Control.exe
-D:\Documents\Massey\Year 3\MMA\MMA\Stepper Control\Stepper Control\obj\Debug\Stepper Control.xml
-D:\Documents\Massey\Year 3\MMA\MMA\Stepper Control\Stepper Control\obj\Debug\Stepper Control.pdb
-D:\Documents\Massey\Year 3\MMA\MMA\Stepper Control\Stepper Control\obj\Debug\Stepper Control.vbprojResolveAssemblyReference.cache
-D:\Documents\Massey\Year 3\MMA\MMA\Stepper Control\Stepper Control\obj\Debug\Stepper_Control.runDlg.resources
-D:\Documents\Massey\Year 3\MMA\MMA\Stepper Control\Stepper Control\obj\Debug\Stepper_Control.Form1.resources
-D:\Documents\Massey\Year 3\MMA\MMA\Stepper Control\Stepper Control\obj\Debug\Stepper_Control.Resources.resources
-D:\Documents\Massey\Year 3\MMA\MMA\Stepper Control\Stepper Control\obj\Debug\Stepper Control.vbproj.GenerateResource.Cache
-D:\Documents\Massey\Year 3\MMA\MMA\Stepper Control\Stepper Control\bin\Debug\Stepper Control.exe
-D:\Documents\Massey\Year 3\MMA\MMA\Stepper Control\Stepper Control\bin\Debug\Stepper Control.pdb
-D:\Documents\Massey\Year 3\MMA\MMA\Stepper Control\Stepper Control\bin\Debug\Stepper Control.xml
 \\Mac\Home\Documents\GitHub\MMA\Stepper Control\Stepper Control\bin\Debug\Stepper Control.exe.config
 \\Mac\Home\Documents\GitHub\MMA\Stepper Control\Stepper Control\bin\Debug\Stepper Control.exe
 \\Mac\Home\Documents\GitHub\MMA\Stepper Control\Stepper Control\bin\Debug\Stepper Control.pdb
@@ -59,3 +47,20 @@ D:\Documents\Massey\Year 3\MMA\MMA\Stepper Control\Stepper Control\bin\Debug\Ste
 \\Mac\Home\Documents\GitHub\MMA\Stepper Control\Stepper Control\obj\Debug\Stepper Control.exe
 \\Mac\Home\Documents\GitHub\MMA\Stepper Control\Stepper Control\obj\Debug\Stepper Control.xml
 \\Mac\Home\Documents\GitHub\MMA\Stepper Control\Stepper Control\obj\Debug\Stepper Control.pdb
+D:\Documents\Massey\Year 3\MMA\MMA\Stepper Control\Stepper Control\bin\Debug\Stepper Control.exe.config
+D:\Documents\Massey\Year 3\MMA\MMA\Stepper Control\Stepper Control\bin\Debug\Stepper Control.exe
+D:\Documents\Massey\Year 3\MMA\MMA\Stepper Control\Stepper Control\bin\Debug\Stepper Control.pdb
+D:\Documents\Massey\Year 3\MMA\MMA\Stepper Control\Stepper Control\bin\Debug\Stepper Control.xml
+D:\Documents\Massey\Year 3\MMA\MMA\Stepper Control\Stepper Control\obj\Debug\Visulizer.g.vb
+D:\Documents\Massey\Year 3\MMA\MMA\Stepper Control\Stepper Control\obj\Debug\Stepper Control_MarkupCompile.cache
+D:\Documents\Massey\Year 3\MMA\MMA\Stepper Control\Stepper Control\obj\Debug\Stepper Control_MarkupCompile.lref
+D:\Documents\Massey\Year 3\MMA\MMA\Stepper Control\Stepper Control\obj\Debug\Visulizer.baml
+D:\Documents\Massey\Year 3\MMA\MMA\Stepper Control\Stepper Control\obj\Debug\Stepper Control.g.resources
+D:\Documents\Massey\Year 3\MMA\MMA\Stepper Control\Stepper Control\obj\Debug\Stepper_Control.runDlg.resources
+D:\Documents\Massey\Year 3\MMA\MMA\Stepper Control\Stepper Control\obj\Debug\Stepper_Control.Form1.resources
+D:\Documents\Massey\Year 3\MMA\MMA\Stepper Control\Stepper Control\obj\Debug\Stepper_Control.Resources.resources
+D:\Documents\Massey\Year 3\MMA\MMA\Stepper Control\Stepper Control\obj\Debug\Stepper Control.vbproj.GenerateResource.Cache
+D:\Documents\Massey\Year 3\MMA\MMA\Stepper Control\Stepper Control\obj\Debug\Stepper Control.exe
+D:\Documents\Massey\Year 3\MMA\MMA\Stepper Control\Stepper Control\obj\Debug\Stepper Control.xml
+D:\Documents\Massey\Year 3\MMA\MMA\Stepper Control\Stepper Control\obj\Debug\Stepper Control.pdb
+D:\Documents\Massey\Year 3\MMA\MMA\Stepper Control\Stepper Control\obj\Debug\Stepper Control.vbprojResolveAssemblyReference.cache
