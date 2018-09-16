@@ -1,7 +1,7 @@
 #define HomeSpeed 30
 #define MoveSpeed 50
 #define HoistSpeed 50
-#define ACCEL 1
+#define ACCEL 0
 #include "mbed.h"
 #include "stepper.h"
 
@@ -12,8 +12,8 @@ Stepper Track_l(PB_13, PA_10, PA_1, 800);
 Stepper Bridge(PB_14, PA_11, PA_4, 800);
 Stepper Hoist(PB_10, PB_4, PC_5, 178);
 DigitalOut stepper_enable(PC_4);
-Serial uart(PC_10 , PC_11);
-//Serial uart(PA_2 , PA_3);
+//Serial uart(PC_10 , PC_11);
+Serial uart(PA_2 , PA_3);
 DigitalOut LED(PA_5);
 DigitalOut HALL(PA_0);
 Ticker Don;
@@ -104,11 +104,11 @@ void moveservo(int state)
 {
     if (state == 1)
     {
-        servo.pulsewidth_us(1950);
+        servo.pulsewidth_us(950);
     }
     else
     {
-        servo.pulsewidth_us(1150);
+        servo.pulsewidth_us(2200);
     }
     wait_ms(10);
 }
@@ -181,6 +181,7 @@ int main(){
             Bridge.move_to(bridge_cooard,MoveSpeed);
             Track_l.move_to(track_cooard,MoveSpeed);
             Track_r.move_to(track_cooard,MoveSpeed);
+						while(Bridge.is_moving() || Track_l.is_moving())
             Hoist.move_to(hoist_cooard,HoistSpeed);
 						waitOnMove();
         }

@@ -64,3 +64,8 @@ D:\Documents\Massey\Year 3\MMA\MMA\Stepper Control\Stepper Control\obj\Debug\Ste
 D:\Documents\Massey\Year 3\MMA\MMA\Stepper Control\Stepper Control\obj\Debug\Stepper Control.xml
 D:\Documents\Massey\Year 3\MMA\MMA\Stepper Control\Stepper Control\obj\Debug\Stepper Control.pdb
 D:\Documents\Massey\Year 3\MMA\MMA\Stepper Control\Stepper Control\obj\Debug\Stepper Control.vbprojResolveAssemblyReference.cache
+\\Mac\Home\Documents\GitHub\MMA\Stepper Control\Stepper Control\obj\Debug\Visulizer.g.vb
+\\Mac\Home\Documents\GitHub\MMA\Stepper Control\Stepper Control\obj\Debug\Stepper Control_MarkupCompile.cache
+\\Mac\Home\Documents\GitHub\MMA\Stepper Control\Stepper Control\obj\Debug\Stepper Control_MarkupCompile.lref
+\\Mac\Home\Documents\GitHub\MMA\Stepper Control\Stepper Control\obj\Debug\Visulizer.baml
+\\Mac\Home\Documents\GitHub\MMA\Stepper Control\Stepper Control\obj\Debug\Stepper Control.g.resources
