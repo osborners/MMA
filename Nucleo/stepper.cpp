@@ -21,7 +21,9 @@ void Stepper::inc_s()
         a_t.detach();
         return;
     }
-    t.attach_us(callback(this, &Stepper::step), 1000000 / fac / cs);
+		float temp = 1000000 / fac / cs;
+    t.attach_us(callback(this, &Stepper::step), temp);
+		printf("%f\n", temp); 
 }
 
 void Stepper::stop()
@@ -61,11 +63,11 @@ void Stepper::move_by(int amount, int dir, int speed)
 {
     step_direction = dir;
     movement = amount * fac;
-    //position += amount * (dir ? 1 : -1);
     if (a == 0) {
         t.attach_us(callback(this, &Stepper::step), 1000000 / fac / speed);
     } else {
         sp = speed;
+				speed = 0;
         cs = 0;
         a_t.attach_us(callback(this, &Stepper::inc_s), 10000);
     }
@@ -90,7 +92,7 @@ void Stepper::home(int speed)
 
 }
 
-void Stepper::set_accel(int accel)
+void Stepper::set_accel(float accel)
 {
     a = accel;
 }

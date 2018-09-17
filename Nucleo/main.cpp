@@ -1,6 +1,6 @@
-#define HomeSpeed 30
+#define HomeSpeed 40
 #define MoveSpeed 50
-#define HoistSpeed 50
+#define HoistSpeed 100
 #define ACCEL 0
 #include "mbed.h"
 #include "stepper.h"
@@ -40,6 +40,19 @@ void flushSerialBuffer(void){
 char posFlag = 0;
 void update_pos(void){
 		posFlag = 1;
+}
+
+int hoist_dir(char command, char current_value, char new_value){
+		if(command == 'B'){
+				if(current_value == '-')
+						return 1;
+				}
+		if(command == 'T'){
+				if(current_value > new_value)
+					  return 1;
+		}
+		else
+				return 0;
 }
 
 void send_pos(void){
@@ -178,12 +191,22 @@ int main(){
             //uart.printf("DonAld\n");
             }
         else if(value[0]=='M'& value[1]=='T'){
-            Bridge.move_to(bridge_cooard,MoveSpeed);
-            Track_l.move_to(track_cooard,MoveSpeed);
-            Track_r.move_to(track_cooard,MoveSpeed);
-						while(Bridge.is_moving() || Track_l.is_moving())
-            Hoist.move_to(hoist_cooard,HoistSpeed);
-						waitOnMove();
+						if(Hoist.position < hoist_cooard){
+								Bridge.move_to(bridge_cooard,MoveSpeed);
+								Track_l.move_to(track_cooard,MoveSpeed);
+								Track_r.move_to(track_cooard,MoveSpeed);
+								while(Bridge.is_moving() || Track_l.is_moving());
+								Hoist.move_to(hoist_cooard,HoistSpeed);
+								waitOnMove();
+						}
+						else
+								Hoist.move_to(hoist_cooard,HoistSpeed);
+								while(Hoist.is_moving());
+								Bridge.move_to(bridge_cooard,MoveSpeed);
+								Track_l.move_to(track_cooard,MoveSpeed);
+								Track_r.move_to(track_cooard,MoveSpeed);
+								waitOnMove();
+						
         }
         else if(value[0]=='M'& value[1]=='B'){
 					
