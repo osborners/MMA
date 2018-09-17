@@ -28,7 +28,7 @@ class Stepper
  private:       
     DigitalOut step_pulse; 
 		DigitalOut step_direction;
-    volatile long movement;    
+    volatile float movement;    
     float a;
     int o;
     float sp;

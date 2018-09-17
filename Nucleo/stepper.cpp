@@ -22,13 +22,11 @@ void Stepper::inc_s()
         return;
     }
 		float temp = 1000000 / fac / cs;
-    t.attach_us(callback(this, &Stepper::step), temp);
-		printf("%f\n", temp); 
+		t.attach_us(callback(this, &Stepper::step), temp);
 }
 
 void Stepper::stop()
 {
-    a = 0;
     t.detach();
     a_t.detach();
 		movement = 0;
@@ -61,16 +59,16 @@ void Stepper::move_to(int location, int speed)
 
 void Stepper::move_by(int amount, int dir, int speed)
 {
+
     step_direction = dir;
     movement = amount * fac;
-    if (a == 0) {
-        t.attach_us(callback(this, &Stepper::step), 1000000 / fac / speed);
-    } else {
+   if (a == 0) {
+       t.attach_us(callback(this, &Stepper::step), 1000000 / fac / speed);
+   } else {
         sp = speed;
-				speed = 0;
         cs = 0;
-        a_t.attach_us(callback(this, &Stepper::inc_s), 10000);
-    }
+				a_t.attach_us(callback(this, &Stepper::inc_s), 10000);
+   }
 }
 
 
@@ -117,7 +115,14 @@ void Stepper::run(int speed,int direction)
     step_direction = direction;
     movement = -1;
     long d = 1000000 / fac / speed;
-    t.attach_us(callback(this, &Stepper::step), d);
+		if (a == 0) {
+       t.attach_us(callback(this, &Stepper::step), 1000000 / fac / d);
+		} 
+		else {
+				sp = speed;
+				cs = 0;
+				a_t.attach_us(callback(this, &Stepper::inc_s), 10000);
+   }
 }
 
 int Stepper::get_pos(void){
@@ -126,7 +131,7 @@ int Stepper::get_pos(void){
 
 void Stepper::switch_triggered(){
 		Stepper::stop();
-		//LED_ = !LED_;
+
 		Stepper::run(5, forwards);
 }
 

@@ -1,7 +1,7 @@
 #define HomeSpeed 40
-#define MoveSpeed 50
+#define MoveSpeed 75
 #define HoistSpeed 100
-#define ACCEL 0
+#define ACCEL 1
 #include "mbed.h"
 #include "stepper.h"
 
@@ -11,9 +11,11 @@ Stepper Track_r(PB_5, PB_3, PB_0, 800);
 Stepper Track_l(PB_13, PA_10, PA_1, 800);
 Stepper Bridge(PB_14, PA_11, PA_4, 800);
 Stepper Hoist(PB_10, PB_4, PC_5, 178);
+
 DigitalOut stepper_enable(PC_4);
 //Serial uart(PC_10 , PC_11);
 Serial uart(PA_2 , PA_3);
+
 DigitalOut LED(PA_5);
 DigitalOut HALL(PA_0);
 Ticker Don;
@@ -232,10 +234,20 @@ int main(){
             else{
                 hoist_dir = forwards;
             }
-            Bridge.move_by(bridge_cooard,bridge_dir,MoveSpeed);
-            Track_l.move_by(track_cooard,track_dir,MoveSpeed);
-            Track_r.move_by(track_cooard,track_dir,MoveSpeed);
-            Hoist.move_by(hoist_cooard,hoist_dir,HoistSpeed);
+						if(hoist_dir == backwards){
+								Hoist.move_by(hoist_cooard,hoist_dir,HoistSpeed);
+								while(Hoist.is_moving());
+								Bridge.move_by(bridge_cooard,bridge_dir,MoveSpeed);
+								Track_l.move_by(track_cooard,track_dir,MoveSpeed);
+								Track_r.move_by(track_cooard,track_dir,MoveSpeed);
+						}
+						else{
+								Bridge.move_by(bridge_cooard,bridge_dir,MoveSpeed);
+								Track_l.move_by(track_cooard,track_dir,MoveSpeed);
+								Track_r.move_by(track_cooard,track_dir,MoveSpeed);
+								while(Bridge.is_moving() || Track_l.is_moving());
+								Hoist.move_by(hoist_cooard,hoist_dir,HoistSpeed);
+						}
 						waitOnMove();
         } else if(value[0]=='S'& value[1]=='V') {
 						if (bridge_cooard == 1) {
