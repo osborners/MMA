@@ -51,6 +51,12 @@ Partial Class Form1
         Me.Ports = New System.Windows.Forms.ToolStripComboBox()
         Me.Button10 = New System.Windows.Forms.ToolStripButton()
         Me.Button11 = New System.Windows.Forms.ToolStripButton()
+        Me.ToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ToolStripMenuItem2 = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ToolStripSeparator2 = New System.Windows.Forms.ToolStripSeparator()
+        Me.ToolStripMenuItem3 = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ToolStripMenuItem4 = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ToolStripMenuItem5 = New System.Windows.Forms.ToolStripMenuItem()
         Me.TabControl1 = New System.Windows.Forms.TabControl()
         Me.TabPage1 = New System.Windows.Forms.TabPage()
         Me.ElementHost1 = New System.Windows.Forms.Integration.ElementHost()
@@ -74,6 +80,7 @@ Partial Class Form1
         Me.trackPos = New System.Windows.Forms.ToolStripStatusLabel()
         Me.hoistPos = New System.Windows.Forms.ToolStripStatusLabel()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.Button5 = New System.Windows.Forms.Button()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.rbtnAbsolute = New System.Windows.Forms.RadioButton()
         Me.RadioButton1 = New System.Windows.Forms.RadioButton()
@@ -335,7 +342,7 @@ Partial Class Form1
         '
         Me.ToolStrip3.Dock = System.Windows.Forms.DockStyle.Bottom
         Me.ToolStrip3.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden
-        Me.ToolStrip3.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripLabel2, Me.Ports, Me.Button10, Me.Button11})
+        Me.ToolStrip3.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripLabel2, Me.Ports, Me.Button10, Me.Button11, Me.ToolStripMenuItem1})
         Me.ToolStrip3.Location = New System.Drawing.Point(0, 520)
         Me.ToolStrip3.Name = "ToolStrip3"
         Me.ToolStrip3.Size = New System.Drawing.Size(810, 25)
@@ -371,6 +378,42 @@ Partial Class Form1
         Me.Button11.Name = "Button11"
         Me.Button11.Size = New System.Drawing.Size(40, 22)
         Me.Button11.Text = "Close"
+        '
+        'ToolStripMenuItem1
+        '
+        Me.ToolStripMenuItem1.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripMenuItem2, Me.ToolStripSeparator2, Me.ToolStripMenuItem3, Me.ToolStripMenuItem4, Me.ToolStripMenuItem5})
+        Me.ToolStripMenuItem1.Name = "ToolStripMenuItem1"
+        Me.ToolStripMenuItem1.Size = New System.Drawing.Size(52, 25)
+        Me.ToolStripMenuItem1.Text = "Home"
+        '
+        'ToolStripMenuItem2
+        '
+        Me.ToolStripMenuItem2.Name = "ToolStripMenuItem2"
+        Me.ToolStripMenuItem2.Size = New System.Drawing.Size(152, 22)
+        Me.ToolStripMenuItem2.Text = "All"
+        '
+        'ToolStripSeparator2
+        '
+        Me.ToolStripSeparator2.Name = "ToolStripSeparator2"
+        Me.ToolStripSeparator2.Size = New System.Drawing.Size(149, 6)
+        '
+        'ToolStripMenuItem3
+        '
+        Me.ToolStripMenuItem3.Name = "ToolStripMenuItem3"
+        Me.ToolStripMenuItem3.Size = New System.Drawing.Size(152, 22)
+        Me.ToolStripMenuItem3.Text = "Bridge"
+        '
+        'ToolStripMenuItem4
+        '
+        Me.ToolStripMenuItem4.Name = "ToolStripMenuItem4"
+        Me.ToolStripMenuItem4.Size = New System.Drawing.Size(152, 22)
+        Me.ToolStripMenuItem4.Text = "Track"
+        '
+        'ToolStripMenuItem5
+        '
+        Me.ToolStripMenuItem5.Name = "ToolStripMenuItem5"
+        Me.ToolStripMenuItem5.Size = New System.Drawing.Size(152, 22)
+        Me.ToolStripMenuItem5.Text = "Hoist"
         '
         'TabControl1
         '
@@ -450,43 +493,43 @@ Partial Class Form1
         '
         Me.HomeToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.AllToolStripMenuItem, Me.ToolStripSeparator1, Me.BridgeToolStripMenuItem, Me.TrackToolStripMenuItem, Me.HoistToolStripMenuItem})
         Me.HomeToolStripMenuItem.Name = "HomeToolStripMenuItem"
-        Me.HomeToolStripMenuItem.Size = New System.Drawing.Size(107, 22)
+        Me.HomeToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
         Me.HomeToolStripMenuItem.Text = "Home"
         '
         'AllToolStripMenuItem
         '
         Me.AllToolStripMenuItem.Name = "AllToolStripMenuItem"
-        Me.AllToolStripMenuItem.Size = New System.Drawing.Size(108, 22)
+        Me.AllToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
         Me.AllToolStripMenuItem.Text = "All"
         '
         'ToolStripSeparator1
         '
         Me.ToolStripSeparator1.Name = "ToolStripSeparator1"
-        Me.ToolStripSeparator1.Size = New System.Drawing.Size(105, 6)
+        Me.ToolStripSeparator1.Size = New System.Drawing.Size(149, 6)
         '
         'BridgeToolStripMenuItem
         '
         Me.BridgeToolStripMenuItem.Name = "BridgeToolStripMenuItem"
-        Me.BridgeToolStripMenuItem.Size = New System.Drawing.Size(108, 22)
+        Me.BridgeToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
         Me.BridgeToolStripMenuItem.Text = "Bridge"
         '
         'TrackToolStripMenuItem
         '
         Me.TrackToolStripMenuItem.Name = "TrackToolStripMenuItem"
-        Me.TrackToolStripMenuItem.Size = New System.Drawing.Size(108, 22)
+        Me.TrackToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
         Me.TrackToolStripMenuItem.Text = "Track"
         '
         'HoistToolStripMenuItem
         '
         Me.HoistToolStripMenuItem.Name = "HoistToolStripMenuItem"
-        Me.HoistToolStripMenuItem.Size = New System.Drawing.Size(108, 22)
+        Me.HoistToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
         Me.HoistToolStripMenuItem.Text = "Hoist"
         '
         'ServoToolStripMenuItem
         '
         Me.ServoToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ReleaseToolStripMenuItem, Me.EngageToolStripMenuItem})
         Me.ServoToolStripMenuItem.Name = "ServoToolStripMenuItem"
-        Me.ServoToolStripMenuItem.Size = New System.Drawing.Size(107, 22)
+        Me.ServoToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
         Me.ServoToolStripMenuItem.Text = "Servo"
         '
         'ReleaseToolStripMenuItem
@@ -547,6 +590,7 @@ Partial Class Form1
         Me.GroupBox1.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.GroupBox1.Controls.Add(Me.Button5)
         Me.GroupBox1.Controls.Add(Me.Label1)
         Me.GroupBox1.Controls.Add(Me.rbtnAbsolute)
         Me.GroupBox1.Controls.Add(Me.RadioButton1)
@@ -572,6 +616,15 @@ Partial Class Form1
         Me.GroupBox1.TabIndex = 1
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Movement"
+        '
+        'Button5
+        '
+        Me.Button5.Location = New System.Drawing.Point(40, 384)
+        Me.Button5.Name = "Button5"
+        Me.Button5.Size = New System.Drawing.Size(75, 23)
+        Me.Button5.TabIndex = 29
+        Me.Button5.Text = "Button5"
+        Me.Button5.UseVisualStyleBackColor = True
         '
         'Label1
         '
@@ -744,12 +797,6 @@ Partial Class Form1
     Friend WithEvents ToolStripButton1 As ToolStripButton
     Friend WithEvents GroupBox2 As GroupBox
     Friend WithEvents ToolStripLabel1 As ToolStripDropDownButton
-    Friend WithEvents HomeToolStripMenuItem As ToolStripMenuItem
-    Friend WithEvents AllToolStripMenuItem As ToolStripMenuItem
-    Friend WithEvents ToolStripSeparator1 As ToolStripSeparator
-    Friend WithEvents BridgeToolStripMenuItem As ToolStripMenuItem
-    Friend WithEvents TrackToolStripMenuItem As ToolStripMenuItem
-    Friend WithEvents HoistToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents ServoToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents ReleaseToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents EngageToolStripMenuItem As ToolStripMenuItem
@@ -774,4 +821,17 @@ Partial Class Form1
     Friend WithEvents Label2 As Label
     Friend WithEvents Label8 As Label
     Friend WithEvents height As TextBox
+    Friend WithEvents Button5 As Button
+    Friend WithEvents ToolStripMenuItem1 As ToolStripMenuItem
+    Friend WithEvents ToolStripMenuItem2 As ToolStripMenuItem
+    Friend WithEvents ToolStripSeparator2 As ToolStripSeparator
+    Friend WithEvents ToolStripMenuItem3 As ToolStripMenuItem
+    Friend WithEvents ToolStripMenuItem4 As ToolStripMenuItem
+    Friend WithEvents ToolStripMenuItem5 As ToolStripMenuItem
+    Friend WithEvents HomeToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents AllToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents ToolStripSeparator1 As ToolStripSeparator
+    Friend WithEvents BridgeToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents TrackToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents HoistToolStripMenuItem As ToolStripMenuItem
 End Class

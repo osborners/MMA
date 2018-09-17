@@ -32,17 +32,28 @@ Public Class Visulizer
             })
         }
 
+        Private _pos As Point3D
         Public Sub New(ByVal pos As Point3D, ByVal offset As Vector3D, ByVal b As Brush, ByVal group As Model3DGroup)
             Brush = b
-            Position = pos
+            _pos = pos + offset
             model = New GeometryModel3D(pelletGeometry, New DiffuseMaterial(b))
-            model.Transform = New TranslateTransform3D(New Vector3D(pos.X, pos.Y, pos.Z) + offset)
+            model.Transform = New TranslateTransform3D(New Vector3D(_pos.X, _pos.Y, _pos.Z))
             group.Children.Add(model)
             g = group
         End Sub
 
         Public Property Brush As Brush
+
         Public Property Position As Point3D
+            Get
+                Return Position
+            End Get
+            Set(value As Point3D)
+                _pos = value
+                model.Transform = New TranslateTransform3D(New Vector3D(_pos.X, _pos.Y, _pos.Z))
+            End Set
+        End Property
+
         Public Property contentsKey As String
         Public ReadOnly Property model As GeometryModel3D
 
@@ -58,7 +69,7 @@ Public Class Visulizer
     Shared WIDTH As Integer = 4
     Shared DEPTH As Integer = 4
     Shared HEIGHT As Integer = 2
-        Private Pellets As Dictionary(Of Point3D, Pellet) = New Dictionary(Of Point3D, Pellet)()
+    Private Pellets As Dictionary(Of Point3D, Pellet) = New Dictionary(Of Point3D, Pellet)()
 
     Public Sub Init()
         Pellets.Clear()
@@ -76,29 +87,59 @@ Public Class Visulizer
 
                 For z As Integer = 0 To HEIGHT - 1
                     Dim p As Pellet = New Pellet(New Point3D(x, y, z), offset, brushes(z Mod 3), pelletModels)
-                    Pellets.Add(New Point3D(x, y, z), p)
+                    Pellets.Add(New Point3D(WIDTH - 1 - x, y, HEIGHT - 1 - z), p)
                 Next
             Next
         Next
     End Sub
 
+    Dim grabbed As Pellet
+
+    Dim oldPos As Point3D
     Public Sub moveGrabberX(x As Double)
         grabberTransform.OffsetX = WIDTH / 2 - 1.05 - x
+        If grabbed IsNot Nothing Then
+            grabbed.Position += New Vector3D(grabberTransform.OffsetX - oldPos.X, 0, 0)
+        End If
+        oldPos.X = WIDTH / 2 - 1.05 - x
     End Sub
 
     Public Sub moveGrabberY(y As Double)
         grabberTransform.OffsetY = -DEPTH / 2 - 0.05 + y
+        If grabbed IsNot Nothing Then
+            grabbed.Position += New Vector3D(0, grabberTransform.OffsetY - oldPos.Y, 0)
+        End If
+        oldPos.Y = -DEPTH / 2 - 0.05 + y
     End Sub
 
     Public Sub moveGrabberZ(z As Double)
         grabberTransform.OffsetZ = HEIGHT - 1 - z
+        If grabbed IsNot Nothing Then
+            grabbed.Position += New Vector3D(0, 0, grabberTransform.OffsetZ - oldPos.Z)
+        End If
+        oldPos.Z = HEIGHT - 1 - z
+    End Sub
+
+    Public Sub move(pos As Point3D, newpos As Point3D)
+        Dim p As Pellet = Pellets.Item(pos)
+        Pellets.Item(pos).Remove()
+        Pellets.Add(newpos, p)
+    End Sub
+
+    Public Sub grabPellet(pos As Point3D)
+        oldPos = Pellets.Item(pos).Position
+        grabbed = Pellets.Item(pos)
+    End Sub
+
+    Public Sub releasePellet()
+        grabbed = Nothing
     End Sub
 
     Private Function lmt(ByVal val As Double, ByVal min As Double, ByVal max As Double) As Double
-            If val < min Then Return min
-            If val > max Then Return max
-            Return val
-        End Function
+        If val < min Then Return min
+        If val > max Then Return max
+        Return val
+    End Function
 
     Private Sub Viewport3D_MouseWheel(ByVal sender As Object, ByVal e As MouseWheelEventArgs) Handles Me.MouseWheel
         Dim v As Double = e.Delta / 50
