@@ -1,6 +1,7 @@
 Imports System.IO
 Imports System.IO.Ports
 Imports System.Threading
+Imports System.Windows.Media.Media3D
 
 'Width = 145
 'Depth = 128
@@ -8,6 +9,8 @@ Imports System.Threading
 Public Class Form1
     Private Delegate Sub UpdateTextboxDelegate(ByVal myText As String, textBox As TextBox)
     Private Delegate Sub UpdateLabelDelegate(ByVal myText As String, label As ToolStripStatusLabel)
+
+    Dim pelletMoves As List(Of PelletMove) = New List(Of PelletMove)
 
     Dim jogMode As Boolean = False
 
@@ -87,9 +90,25 @@ Public Class Form1
     Dim cmdLine As Integer = -1
     Dim data As String
 
+    Private Sub runNextPelletMove()
+        If pelletMoves.Count = 0 Then Return
+        commands = pelletMoves(0).getCode
+        cmdLine = 0
+        runNextCmd()
+    End Sub
+
     Private Sub runNextCmd()
-        If commands Is Nothing Then Return
+        If commands Is Nothing Then
+            If pelletMoves.Count > 0 Then
+                vis.move(pelletMoves(0).Position, pelletMoves(0).Position + pelletMoves(0).Offset)
+                pelletMoves.RemoveAt(0)
+                runNextPelletMove()
+            End If
+            Return
+        End If
+
         If (jogMode) Then exitJog()
+
         If cmdLine >= 0 And cmdLine < commands.Length Then
             Thread.Sleep(200)
             Dim s = commands(cmdLine).Replace(vbCr, "").Split(" ")
@@ -98,6 +117,15 @@ Public Class Form1
                 Return
             End If
             serPort.Write(s(0))
+
+            If pelletMoves.Count > 0 Then
+                If (s(0) = "SV" And s(1)(0) = "1") Then
+                    vis.grabPellet(pelletMoves(0).Position)
+                ElseIf (s(0) = "SV" And s(1)(0) = "0") Then
+                    vis.releasePellet()
+                End If
+            End If
+
             For i As Integer = 1 To s.Length() - 1
                 serPort.Write(s(i).PadLeft(4, "0"))
             Next
@@ -210,7 +238,7 @@ Public Class Form1
         serPort.WriteLine("SV0001")
     End Sub
 
-    Private Sub AllToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles AllToolStripMenuItem.Click
+    Private Sub AllToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles AllToolStripMenuItem.Click, ToolStripMenuItem2.Click
         If (jogMode) Then exitJog()
         serPort.WriteLine("HM")
     End Sub
@@ -234,6 +262,40 @@ Public Class Form1
             vis.moveGrabberZ(Convert.ToDouble(data.Substring(1)) / Convert.ToDouble(height.Text))
         Catch ex As Exception
         End Try
+    End Sub
+
+    Class PelletMove
+        Shared offsetX As Integer = 0
+        Shared offsetY As Integer = 0
+        Shared offsetZ As Integer = 0
+        Public Property Position As Point3D
+        Public Property Offset As Vector3D
+
+        Public Sub New(pellet As Point3D, pelletOffset As Vector3D)
+            Position = pellet
+            Offset = pelletOffset
+        End Sub
+
+        Public Function getCode() As String()
+            Dim s(6) As String
+            Dim actPos As Point3D = New Point3D(Position.X * Convert.ToInt32(Form1.width.Text) + offsetX, Position.Y * Convert.ToInt32(Form1.depth.Text) + offsetY, (1 - Position.Z) * Convert.ToInt32(Form1.height.Text) + offsetZ)
+            Dim actOffset As Point3D = New Point3D(Offset.X * Convert.ToInt32(Form1.width.Text) + offsetX, Offset.Y * Convert.ToInt32(Form1.depth.Text) + offsetY, -Offset.Z * Convert.ToInt32(Form1.height.Text) + offsetZ)
+            Dim maxH As Integer = Convert.ToInt32(Form1.height.Text) * 2
+            s(0) = "MB 0 0 " + (-maxH).ToString() + vbLf
+            s(1) = "MT " + actPos.X.ToString() + " " + actPos.Y.ToString() + " " + actPos.Z.ToString() + vbLf
+            s(2) = "SV 1" + vbLf
+            s(3) = "MT " + actPos.X.ToString() + " " + actPos.Y.ToString() + " 0" + vbLf
+            s(4) = "MT " + (actPos.X + actOffset.X).ToString() + " " + (actPos.Y + actOffset.Y).ToString() + " 0" + vbLf
+            s(5) = "MT " + (actPos.X + actOffset.X).ToString() + " " + (actPos.Y + actOffset.Y).ToString() + " " + (actPos.Z + actOffset.Z).ToString() + vbLf
+            s(6) = "SV 0" + vbLf
+            Return s
+        End Function
+
+    End Class
+
+    Private Sub Button5_Click(sender As Object, e As EventArgs) Handles Button5.Click
+        pelletMoves.Add(New PelletMove(New Point3D(0, 0, 0), New Vector3D(1, 1, 1)))
+        runNextPelletMove()
     End Sub
 
 End Class
