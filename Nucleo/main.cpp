@@ -1,6 +1,6 @@
-#define HomeSpeed 40
+#define HomeSpeed 60
 #define MoveSpeed 75
-#define HoistSpeed 100
+#define HoistSpeed 40
 #define ACCEL 1
 #include "mbed.h"
 #include "stepper.h"
@@ -145,6 +145,7 @@ int main(){
 		Track_r.set_accel(ACCEL);
 		Track_l.set_accel(ACCEL);
 		Bridge.set_accel(ACCEL);
+	Hoist.set_accel(ACCEL);
 	
 	  char value[14];
 	
@@ -262,6 +263,7 @@ int main(){
 						Track_r.full_home(backwards);
 						Track_l.full_home(backwards);
 						waitOnMove();
+					// Grid zero cooardanite x12,y230,z0
 				} else {
 					continue;
 				}

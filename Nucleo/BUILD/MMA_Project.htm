@@ -3,7 +3,7 @@
 <title>Static Call Graph - [.\BUILD\MMA_Project.axf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image .\BUILD\MMA_Project.axf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060750: Last Updated: Mon Sep 17 21:19:31 2018
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060750: Last Updated: Thu Sep 20 14:27:52 2018
 <BR><P>
 <H3>Maximum Stack Usage =          0 bytes + Unknown(Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
@@ -2139,7 +2139,7 @@ Global Symbols
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> stepper.o(.constdata)
 </UL>
-<P><STRONG><a name="[182]"></a>Stepper::run(int, int)</STRONG> (Thumb, 168 bytes, Stack size 0 bytes, .\build\stepper.o(i._ZN7Stepper3runEii))
+<P><STRONG><a name="[182]"></a>Stepper::run(int, int)</STRONG> (Thumb, 170 bytes, Stack size 0 bytes, .\build\stepper.o(i._ZN7Stepper3runEii))
 <BR><BR>[Calls]<UL><LI><a href="#[1d3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;mbed::Callback&lang;T3()&rang; mbed::callback&lang;Stepper, Stepper, void&rang;(T2*, T3(T1::*)())
 <LI><a href="#[1c4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;mbed::Ticker::attach_us(mbed::Callback&lang;void()&rang;, unsigned long long)
 <LI><a href="#[1d1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;mbed::DigitalOut::operator =(int)
@@ -2151,14 +2151,14 @@ Global Symbols
 <LI><a href="#[180]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;jog_command(char)
 </UL>
 
-<P><STRONG><a name="[94]"></a>Stepper::step()</STRONG> (Thumb, 86 bytes, Stack size 0 bytes, .\build\stepper.o(i._ZN7Stepper4stepEv))
+<P><STRONG><a name="[94]"></a>Stepper::step()</STRONG> (Thumb, 114 bytes, Stack size 0 bytes, .\build\stepper.o(i._ZN7Stepper4stepEv))
 <BR><BR>[Calls]<UL><LI><a href="#[1d4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;mbed::DigitalOut::operator int()
 <LI><a href="#[1d1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;mbed::DigitalOut::operator =(int)
 <LI><a href="#[181]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Stepper::stop()
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> stepper.o(.constdata)
 </UL>
-<P><STRONG><a name="[181]"></a>Stepper::stop()</STRONG> (Thumb, 24 bytes, Stack size 0 bytes, .\build\stepper.o(i._ZN7Stepper4stopEv))
+<P><STRONG><a name="[181]"></a>Stepper::stop()</STRONG> (Thumb, 28 bytes, Stack size 0 bytes, .\build\stepper.o(i._ZN7Stepper4stopEv))
 <BR><BR>[Calls]<UL><LI><a href="#[1c3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;mbed::Ticker::detach()
 </UL>
 <BR>[Called By]<UL><LI><a href="#[93]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Stepper::retract()
@@ -2180,7 +2180,7 @@ Global Symbols
 <BR><BR>[Called By]<UL><LI><a href="#[17f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;send_pos()
 </UL>
 
-<P><STRONG><a name="[1d5]"></a>Stepper::move_by(int, int, int)</STRONG> (Thumb, 174 bytes, Stack size 0 bytes, .\build\stepper.o(i._ZN7Stepper7move_byEiii))
+<P><STRONG><a name="[1d5]"></a>Stepper::move_by(int, int, int)</STRONG> (Thumb, 168 bytes, Stack size 0 bytes, .\build\stepper.o(i._ZN7Stepper7move_byEiii))
 <BR><BR>[Calls]<UL><LI><a href="#[1d3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;mbed::Callback&lang;T3()&rang; mbed::callback&lang;Stepper, Stepper, void&rang;(T2*, T3(T1::*)())
 <LI><a href="#[1c4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;mbed::Ticker::attach_us(mbed::Callback&lang;void()&rang;, unsigned long long)
 <LI><a href="#[1d1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;mbed::DigitalOut::operator =(int)
@@ -2208,7 +2208,7 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[159]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;$Super$$main
 </UL>
 
-<P><STRONG><a name="[17e]"></a>Stepper::is_moving()</STRONG> (Thumb, 10 bytes, Stack size 0 bytes, .\build\stepper.o(i._ZN7Stepper9is_movingEv))
+<P><STRONG><a name="[17e]"></a>Stepper::is_moving()</STRONG> (Thumb, 22 bytes, Stack size 0 bytes, .\build\stepper.o(i._ZN7Stepper9is_movingEv))
 <BR><BR>[Called By]<UL><LI><a href="#[159]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;$Super$$main
 <LI><a href="#[17d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;display_pos()
 <LI><a href="#[17c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;waitOnMove()
@@ -2218,7 +2218,7 @@ Global Symbols
 <BR><BR>[Called By]<UL><LI><a href="#[159]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;$Super$$main
 </UL>
 
-<P><STRONG><a name="[1d8]"></a>Stepper::Stepper(PinName, PinName, PinName, int)</STRONG> (Thumb, 144 bytes, Stack size 0 bytes, .\build\stepper.o(i._ZN7StepperC1E7PinNameS0_S0_i))
+<P><STRONG><a name="[1d8]"></a>Stepper::Stepper(PinName, PinName, PinName, int)</STRONG> (Thumb, 150 bytes, Stack size 0 bytes, .\build\stepper.o(i._ZN7StepperC1E7PinNameS0_S0_i))
 <BR><BR>[Calls]<UL><LI><a href="#[1d3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;mbed::Callback&lang;T3()&rang; mbed::callback&lang;Stepper, Stepper, void&rang;(T2*, T3(T1::*)())
 <LI><a href="#[1c5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;mbed::Ticker::Ticker()
 <LI><a href="#[1b4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;mbed::InterruptIn::InterruptIn(PinName)
@@ -2553,7 +2553,7 @@ Global Symbols
 <LI><a href="#[189]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;serial_init
 </UL>
 
-<P><STRONG><a name="[159]"></a>$Super$$main</STRONG> (Thumb, 882 bytes, Stack size 0 bytes, .\build\main.o(i.main))
+<P><STRONG><a name="[159]"></a>$Super$$main</STRONG> (Thumb, 894 bytes, Stack size 0 bytes, .\build\main.o(i.main))
 <BR><BR>[Calls]<UL><LI><a href="#[1f5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pwmout_period_us
 <LI><a href="#[1a6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;core_util_critical_section_exit
 <LI><a href="#[1a3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;core_util_critical_section_enter
